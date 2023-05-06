@@ -7,6 +7,7 @@ $color: #27262b;
 $a-color: #1267da;
 $b-color: #dd672c;
 $c-color: lighten($color, 30%);
+$note-color: #eff8f8;
 
 // globals
 div, ul {
@@ -125,7 +126,8 @@ img, svg {
             margin: 1rem 0;
         }
         p[class], pre, ul {
-            background-color: #{$bg-color};
+            background-color: #{$note-color};
+            border-left: 3px solid darken($note-color, 50%);
             padding: 0.5rem;
             font-size: 0.8rem;
             &:before {
