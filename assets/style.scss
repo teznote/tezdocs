@@ -155,9 +155,9 @@ img, svg {
             }
         }
         p[class], pre, ul {
-            color: darken($note-color, 75%);
+            color: darken($note-color, 70%);
             background-color: #{$note-color};
-            border-left: 3px solid darken($note-color, 75%);
+            border-left: 3px solid darken($note-color, 70%);
             padding: 0.5rem;
             font-size: 0.9rem;
             &:before {
@@ -187,9 +187,9 @@ img, svg {
             }
         }
         .warn, .warning {
-            color: darken($warn-color, 75%);
-            background-color: #{$warn-color};
-            border-left: 3px solid darken($warn-color, 75%);
+            color: darken($warn-color, 70%) !important;
+            background-color: #{$warn-color} !important;
+            border-left: 3px solid darken($warn-color, 70%) !important;
         }
     }
     .page-reply {
