@@ -116,11 +116,33 @@ img, svg {
     .page-title {
         margin: 1rem 0;
         text-align: center;
+        &:before {
+            content: "\f10d";
+            font: var(--fa-font-solid);
+            font-size: 1.5rem;
+            position: relative;
+            top: -0.8rem;
+        }
+        &:after {
+            content: "\f10e";
+            font: var(--fa-font-solid);
+            font-size: 1.5rem;
+            position: relative;
+            top: -0.8rem;
+        }
     }
     .page-desc {
         margin: -1rem 0 1rem 0;
+        font-size: 0.9rem;
+        color: #{$c-color};
     }
     .page-main {
+        img, svg {
+            display: block;
+            text-align: center;
+            max-width: 100%;
+            height: auto;
+        }
         div, p, pre, ul {
             margin: 1rem 0;
         }
@@ -129,7 +151,7 @@ img, svg {
             background-color: #{$note-color};
             border-left: 3px solid darken($note-color, 70%);
             padding: 0.5rem;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             &:before {
                 content: attr(class);
                 display: block;
@@ -138,13 +160,13 @@ img, svg {
                 font-weight: 800;
             }
             li {
-                margin-left: 0.8rem;
+                margin-left: 0.9rem;
                 &:before {
                     content: "-";
                     font: var(--fa-font-solid);
                     display: inline-block;
-                    width: 0.8rem;
-                    margin-left: -0.8rem;
+                    width: 0.9rem;
+                    margin-left: -0.9rem;
                     text-align: left;
                 }
             }
@@ -152,7 +174,7 @@ img, svg {
                 margin: 0 !important;
                 padding: 0 !important;
                 background-color: transparent !important;
-                font-size: 0.8rem !important;
+                font-size: 0.9rem !important;
                 color: #{$color} !important;
             }
         }
