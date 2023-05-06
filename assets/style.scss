@@ -30,7 +30,7 @@ html, body {
     color: #{$color};
     background-color: #{$bg-color};
 }
-code, kbd, samp {
+pre, code, kbd, samp {
     font-family: "Hack", "NanumSquareRound", monospace !important;
 }
 a, a:link, a:visited, a:hover, a:active {
@@ -132,7 +132,8 @@ img, svg {
         }
     }
     .page-desc {
-        margin: -1rem 0 1rem 0;
+        margin: -1rem 0 2rem 0;
+        text-align: right;
         font-size: 0.9rem;
         color: #{$c-color};
     }
@@ -145,6 +146,12 @@ img, svg {
         }
         div, p, pre, ul {
             margin: 1rem 0;
+        }
+        h2 {
+            margin: 2rem 0 1rem 0;
+            &:before {
+                content: "#\00a0";
+            }
         }
         p[class], pre, ul {
             color: darken($note-color, 80%);
