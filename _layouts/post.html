@@ -31,3 +31,12 @@ layout: default
         </div>
     </div>
 </div>
+<script>
+    var target = '{{ "/assets/nav.html" | relative_url  }}';
+    fetch(target).then(function(response) {
+        return response.text();
+    }).then(function(body) {
+        document.querySelector('.nav').innerHTML = body;
+        return;
+    });
+</script>

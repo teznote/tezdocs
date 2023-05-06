@@ -1,0 +1,26 @@
+---
+---
+
+{%- for navtag in site.navtags -%}
+<div class="navtag" tag="{{ navtag.id }}">
+    <div class="navtag-title">
+        {{- navtag.title -}}
+    </div>
+    {%- for subtag in navtag.subs -%}
+    <div class="subtag" tag="{{ subtag.id }}">
+        <div class="subtag-title">
+            {{- subtag.title -}}
+        </div>
+        <ul class="subtag-post-wrapper">
+            {%- for post in site.tags[subtag.id] -%}
+            {%- if navtag.id contains post.tags -%}
+            <li class="subtag-post">
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            </li>
+            {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+    {% endfor %}
+</div>
+{% endfor %}
