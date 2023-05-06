@@ -8,6 +8,7 @@ $a-color: #1267da;
 $b-color: #dd672c;
 $c-color: lighten($color, 30%);
 $note-color: #eff8f8;
+$warn-color: #ffedb4;
 
 // globals
 div, ul {
@@ -184,6 +185,11 @@ img, svg {
                 font-size: 0.9rem !important;
                 color: #{$color} !important;
             }
+        }
+        .warn, .warning {
+            color: darken($warn-color, 75%);
+            background-color: #{$warn-color};
+            border-left: 3px solid darken($warn-color, 75%);
         }
     }
     .page-reply {
