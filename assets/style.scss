@@ -147,9 +147,9 @@ img, svg {
             margin: 1rem 0;
         }
         p[class], pre, ul {
-            color: darken($note-color, 70%);
+            color: darken($note-color, 80%);
             background-color: #{$note-color};
-            border-left: 3px solid darken($note-color, 70%);
+            border-left: 3px solid darken($note-color, 80%);
             padding: 0.5rem;
             font-size: 0.9rem;
             &:before {
