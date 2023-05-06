@@ -127,6 +127,7 @@ img, svg {
         p[class], pre, ul {
             background-color: #{$bg-color};
             padding: 0.5rem;
+            font-size: 0.8rem;
             &:before {
                 content: attr(class);
                 display: block;
@@ -145,8 +146,12 @@ img, svg {
                     text-align: center;
                 }
             }
-            code {
-                
+            code, kbd, samp {
+                margin: 0 !important;
+                padding: 0 !important;
+                background-color: transparent !important;
+                font-size: 0.8rem !important;
+                color: #{$color} !important;
             }
         }
     }
