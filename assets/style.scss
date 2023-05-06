@@ -9,6 +9,13 @@ $b-color: #dd672c;
 $c-color: lighten($color, 30%);
 
 // globals
+div, ul {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
 html, body {
     width: 100vw;
     height: 100vh;
@@ -17,7 +24,7 @@ html, body {
     margin: 0;
     padding: 0;
     font-family: "Hack", "NanumSquareRound", monospace !important;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.4;
     color: #{$color};
     background-color: #{$bg-color};
@@ -60,6 +67,7 @@ img, svg {
 // sidebar
 .fixed-sidebar {
     background-color: transparent;
+    padding: 5px;
     border: 1px solid #{$c-color};
     position: fixed;
     top: 0;
@@ -81,10 +89,11 @@ img, svg {
 // main
 .fixed-main {
     background-color: #ffffff;
+    padding: 5px;
     border: 1px solid #{$c-color};
     position: fixed;
     top: 0;
-    left: calc((100vw - 1200px) / 2 + 301px);
+    left: calc((100vw - 1200px) / 2 + 300px);
     width: 900px;
     bottom: 0;
     overflow-y: scroll;
