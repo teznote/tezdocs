@@ -139,13 +139,13 @@ img, svg {
                 font-weight: 800;
             }
             li {
-                margin-left: 1.5rem;
+                margin-left: 1rem;
                 &:before {
                     content: "-";
                     font: var(--fa-font-solid);
                     display: inline-block;
-                    width: 1.5rem;
-                    margin-left: -1.5rem;
+                    width: 1rem;
+                    margin-left: -1rem;
                     text-align: center;
                 }
             }
