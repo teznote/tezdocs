@@ -141,9 +141,15 @@ img, svg {
     .page-main {
         img, svg {
             display: block;
-            text-align: center;
+            margin: 0 auto;
             max-width: 100%;
             height: auto;
+            & + em {
+                margin: -1rem 0 1rem 0;
+                color: #{$c-color};
+                font-size: 0.9rem;
+                text-align: center;
+            }
         }
         div, p, pre, ul {
             margin: 1rem 0;
