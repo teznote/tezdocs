@@ -128,7 +128,7 @@ img, svg {
             background-color: #{$bg-color};
             padding: 1rem 0.5rem 0.5rem 0.5rem;
             li {
-                margin-left: -1.5rem;
+                margin-left: 1.5rem;
                 &:before {
                     content: "-";
                     font: var(--fa-font-solid);
