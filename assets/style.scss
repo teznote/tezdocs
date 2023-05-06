@@ -26,7 +26,7 @@ html, body {
     padding: 0;
     font-family: "Hack", "NanumSquareRound", monospace !important;
     font-size: 16px;
-    line-height: 1.4;
+    line-height: 1.3;
     color: #{$color};
     background-color: #{$bg-color};
 }
@@ -154,9 +154,9 @@ img, svg {
             }
         }
         p[class], pre, ul {
-            color: darken($note-color, 80%);
+            color: darken($note-color, 75%);
             background-color: #{$note-color};
-            border-left: 3px solid darken($note-color, 80%);
+            border-left: 3px solid darken($note-color, 75%);
             padding: 0.5rem;
             font-size: 0.9rem;
             &:before {
