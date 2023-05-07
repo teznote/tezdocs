@@ -144,6 +144,12 @@ img, svg {
         color: #{$c-color};
     }
     .page-main {
+        code {
+            color: #{$c-color};
+            border: 1px solid #{$c-color};
+            border-radius: 2px;
+            background-color: #ffffff;
+        }
         img, svg {
             display: block;
             margin: 0 auto;
@@ -179,6 +185,8 @@ img, svg {
                 text-transform: uppercase;
                 font-weight: 800;
             }
+        }
+        ul {
             li {
                 margin-left: 0.9rem;
                 &:before {
@@ -190,7 +198,10 @@ img, svg {
                     text-align: left;
                 }
             }
+        }
+        pre {
             code, kbd, samp {
+                border: none;
                 margin: 0 !important;
                 padding: 0 !important;
                 background-color: transparent !important;
