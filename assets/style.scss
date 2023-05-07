@@ -85,6 +85,8 @@ img, svg {
     overflow-y: scroll;
     .header {
         position: sticky;
+        top: 0;
+        padding: 1rem 0;
         .site-title {
             text-align: center;
             margin: 1rem 0;
