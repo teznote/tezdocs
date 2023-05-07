@@ -12,9 +12,8 @@
             {{- subtag.title -}}
         </div>
         <ul class="subtag-post-wrapper">
-            {{ site.tags[subtag.id] }}
             {%- for post in site.tags[subtag.id] -%}
-            {%- if navtag.id contains post.tags -%}
+            {%- if post.tags contains navtag.id -%}
             <li class="subtag-post">
                 <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
             </li>
