@@ -146,8 +146,8 @@ img, svg {
     .page-main {
         code {
             color: #{$c-color};
-            border: 1px solid #{$c-color};
-            border-radius: 2px;
+            border: 1px dotted #{$c-color};
+            border-radius: 4px;
             background-color: #ffffff;
         }
         img, svg {

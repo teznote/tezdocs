@@ -12,6 +12,7 @@
             {{- subtag.title -}}
         </div>
         <ul class="subtag-post-wrapper">
+            {{ site.tags[subtag.id] }}
             {%- for post in site.tags[subtag.id] -%}
             {%- if navtag.id contains post.tags -%}
             <li class="subtag-post">
