@@ -98,8 +98,9 @@ img, svg {
     }
     .nav {
         .navtag {
-            margin: 1.5rem 0 1.5rem 1rem;
+            margin: 1.5rem 0 1.5rem 0;
             .navtag-title {
+                cursor: pointer;
                 &:before {
                     content: "> ";
                 }
@@ -114,6 +115,7 @@ img, svg {
                 display: none;
                 margin: 0.5rem 0 0.5rem 1rem;
                 .subtag-title {
+                    cursor: pointer;
                     &:before {
                         content: "> ";
                     }
