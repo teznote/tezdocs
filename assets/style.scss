@@ -138,7 +138,15 @@ img, svg {
                     display: none;
                     margin: 0.5rem 0 0.5rem 1rem;
                     .subtag-post {
-                        margin: 0.5rem 0;
+                        padding: 0.25rem 0;
+                        &.current {
+                            background-color: #{$c-color};
+                        }
+                        &.current:after {
+                            content: "\f061";
+                            font: var(--fa-font-solid);
+                            text-align: right;
+                        }
                     }
                 }
             }
