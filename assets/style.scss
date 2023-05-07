@@ -177,6 +177,7 @@ img, svg {
     overflow-y: scroll;
     // article 별도 표시
     @media (max-width: 1199px) {
+        left: 0;
         width: 100%;
     }
 }
