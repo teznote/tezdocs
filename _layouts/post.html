@@ -44,12 +44,12 @@ layout: default
 
         for (var x of navtags) {
             x.addEventListener('click', function(e) {
-                x.classList.toggle('clicked');
+                e.target.classList.toggle('clicked');
             });
         }
         for (var x of subtags) {
             x.addEventListener('click', function(e) {
-                x.classList.toggle('clicked');
+                e.target.classList.toggle('clicked');
             });
         }
     });
