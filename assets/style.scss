@@ -102,11 +102,14 @@ img, svg {
             .navtag-title {
                 cursor: pointer;
                 &:before {
-                    content: "\f0da";
+                    content: "\f0da\00a0";
                     font: var(--fa-font-solid);
+                    display: inline-block;
+                    width: 1rem;
+                    text-align: left;
                 }
                 &.clicked:before {
-                    transform: rotate(-45deg);
+                    content: "\f0d7\00a0";
                 }
                 &.clicked ~ .subtag {
                     display: block !important;
@@ -118,11 +121,14 @@ img, svg {
                 .subtag-title {
                     cursor: pointer;
                     &:before {
-                        content: "\f0da";
+                        content: "\f0da\00a0";
                         font: var(--fa-font-solid);
+                        display: inline-block;
+                        width: 1rem;
+                        text-align: left;
                     }
                     &.clicked:before {
-                        transform: rotate(-45deg);
+                        content: "\f0d7\00a0";
                     }
                     &.clicked ~ .subtag-post-wrapper {
                         display: block !important;
