@@ -140,7 +140,7 @@ img, svg {
                     .subtag-post {
                         padding: 0.25rem 0;
                         &.current {
-                            background-color: darken($bg-color, 20%);
+                            background-color: darken($bg-color, 10%);
                         }
                         // &.current:after {
                         //     content: "\f061";
