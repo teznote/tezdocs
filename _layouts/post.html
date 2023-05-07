@@ -63,6 +63,7 @@ layout: default
                     x.classList.add('current');
                     var navtag = x.getAttribute('navtag');
                     var subtag = x.getAttribute('subtag');
+                    console.log(navtag, subtag);
                     document.querySelector(`.subtag[subtag="${subtag}"]`).classList.add('clicked');
                     document.querySelector(`.navtag[navtag="${navtag}"]`).classList.add('clicked');
                     break;
