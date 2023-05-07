@@ -75,7 +75,7 @@ img, svg {
 // sidebar
 .fixed-sidebar {
     background-color: transparent;
-    padding: 0 0.5rem;
+    padding: 0 0.5rem 0.5rem 0.5rem;
     // border: 1px solid #{$c-color};
     position: fixed;
     top: 0;
@@ -162,7 +162,7 @@ img, svg {
 // main
 .fixed-main {
     background-color: #ffffff;
-    padding: 0 0.5rem;
+    padding: 0 0.5rem 0.5rem 0.5rem;
     // border: 1px solid #{$c-color};
     position: fixed;
     top: 0;
