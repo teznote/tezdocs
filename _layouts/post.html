@@ -55,6 +55,7 @@ layout: default
     }).then(function() {
         var cur = document.location.href.match(/(https?:\/\/[a-zA-Z0-9.:]+)([a-zA-Z0-9\/%_.-]+)/);
         var posts = document.querySelectorAll('.subtag-post');
+        var c;
 
         if (cur) {
             for (var x of posts) {
@@ -66,9 +67,11 @@ layout: default
                     console.log(navtag, subtag);
                     document.querySelector(`.subtag[subtag="${subtag}"]`).querySelector('.subtag-title').classList.add('clicked');
                     document.querySelector(`.navtag[navtag="${navtag}"]`).querySelector('.navtag-title').classList.add('clicked');
+                    c = x;
                     break;
                 }
             }
+            c.parentElement.scrollTo(0, c.offsetTop-c.offsetHeight*3);
         }
     });
 </script>
