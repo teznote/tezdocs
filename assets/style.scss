@@ -83,6 +83,9 @@ img, svg {
     bottom: 0;
     width: 300px;
     overflow-y: scroll;
+    @media (max-width: 1199px) {
+        left: -300px;
+    }
     .header {
         position: sticky;
         top: 0;
@@ -173,6 +176,9 @@ img, svg {
     bottom: 0;
     overflow-y: scroll;
     // article 별도 표시
+    @media (max-width: 1199px) {
+        width: 100%;
+    }
 }
 
 // article
