@@ -58,7 +58,7 @@ layout: default
 
         if (cur) {
             for (var x of posts) {
-                var href = el.firstElementChild.getAttribute('href');
+                var href = x.firstElementChild.getAttribute('href');
                 if (href === cur[2]) {
                     x.classList.add('current');
                     var navtag = x.getAttribute('navtag');
