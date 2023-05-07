@@ -7,8 +7,13 @@ $color: #27262b;
 $a-color: #1267da;
 $b-color: #dd672c;
 $c-color: lighten($color, 30%);
-$note-color: #eff8f8;
-$warn-color: #ffedb4;
+$blue-a-color: #28a1c5;
+$blue-bg-color: #f4f8fa;
+$red-a-color: #b52b27;
+$red-bg-color: #fdf7f7;
+$green-a-color: #3d8b3d;
+$green-bg-color: #f1f9f1;
+
 
 // globals
 div, ul {
@@ -162,9 +167,9 @@ img, svg {
             }
         }
         p[class], pre, ul {
-            color: darken($note-color, 70%);
-            background-color: #{$note-color};
-            border-left: 3px solid darken($note-color, 70%);
+            color: #{$blue-a-color};
+            background-color: #{$blue-bg-color};
+            border-left: 3px solid #{$blue-a-color};
             padding: 0.5rem;
             font-size: 0.9rem;
             &:before {
@@ -194,9 +199,14 @@ img, svg {
             }
         }
         .warn, .warning {
-            color: darken($warn-color, 70%) !important;
-            background-color: #{$warn-color} !important;
-            border-left: 3px solid darken($warn-color, 70%) !important;
+            color: #{$red-a-color} !important;
+            background-color: #{$red-bg-color} !important;
+            border-left: 3px solid #{$red-a-color} !important;
+        }
+        .info, .infomation, .note {
+            color: #{$green-a-color} !important;
+            background-color: #{$green-bg-color} !important;
+            border-left: 3px solid #{$green-a-color} !important;
         }
     }
     .page-reply {
