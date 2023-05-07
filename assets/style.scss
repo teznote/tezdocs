@@ -85,11 +85,11 @@ img, svg {
     overflow-y: scroll;
     .header {
         position: sticky;
-        top: 0.5rem;
-        padding: 1rem 0;
+        top: 0;
+        background-color: #{$bg-color};
         .site-title {
             text-align: center;
-            margin: 1rem 0;
+            padding: 2rem 0 1rem 0;
             a i {
                 font-size: 1.5rem;
                 position: relative;
@@ -176,7 +176,7 @@ img, svg {
 // article
 .article {
     .page-title {
-        margin: 1rem 0;
+        margin: 2rem 0 1rem 0;
         text-align: center;
         &:before {
             content: "\f10d";
