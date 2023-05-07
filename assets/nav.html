@@ -2,19 +2,19 @@
 ---
 
 {%- for navtag in site.navtags -%}
-<div class="navtag" tag="{{ navtag.id }}">
+<div class="navtag" navtag="{{ navtag.id }}">
     <div class="navtag-title">
         {{- navtag.title -}}
     </div>
     {%- for subtag in navtag.subs -%}
-    <div class="subtag" tag="{{ subtag.id }}">
+    <div class="subtag" subtag="{{ subtag.id }}">
         <div class="subtag-title">
             {{- subtag.title -}}
         </div>
         <ul class="subtag-post-wrapper">
             {%- for post in site.tags[subtag.id] reversed -%}
             {%- if post.tags contains navtag.id -%}
-            <li class="subtag-post">
+            <li class="subtag-post" navtag="{{ navtag.id }}" sugtag="{{ subtag.id }}">
                 <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
             </li>
             {% endif %}

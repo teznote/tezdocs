@@ -52,5 +52,22 @@ layout: default
                 e.target.classList.toggle('clicked');
             });
         }
+    }).then(function() {
+        var cur = document.location.href.match(/(https?:\/\/[a-zA-Z0-9.:]+)([a-zA-Z0-9\/%_.-]+)/);
+        var posts = document.querySelectorAll('.subtag-post');
+
+        if (cur) {
+            for (var x of posts) {
+                var href = el.firstElementChild.getAttribute('href');
+                if (href === cur[2]) {
+                    x.classList.add('current');
+                    var navtag = x.getAttribute('navtag');
+                    var subtag = x.getAttribute('subtag');
+                    document.querySelector(`.navtag[subtag="${subtag}]"`).classList.add('clicked');
+                    document.querySelector(`.navtag[navtag="${navtag}]"`).classList.add('clicked');
+                    break;
+                }
+            }
+        }
     });
 </script>
