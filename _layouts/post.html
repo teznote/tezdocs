@@ -32,6 +32,21 @@ layout: default
     </div>
 </div>
 <script>
+    var navtags = document.querySelectorAll('.navtag-title');
+    var subtags = document.querySelectorAll('.subtag-title');
+
+    for (var x of navtags) {
+        x.addEventListener('click', function(e) {
+            x.classList.toggle('clicked');
+        });
+    }
+    for (var x of subtags) {
+        x.addEventListener('click', function(e) {
+            x.classList.toggle('clicked');
+        });
+    }
+</script>
+<script>
     var target = '{{ "/assets/nav.html" | relative_url  }}';
     fetch(target).then(function(response) {
         return response.text();

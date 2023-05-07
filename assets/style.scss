@@ -56,6 +56,7 @@ h1, h2, h3, h4, h5, h6, div, p, pre, ul, li, button {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transition: transform 0.4s;
 }
 h1 {
     font-size: 2rem;
@@ -96,7 +97,42 @@ img, svg {
         }
     }
     .nav {
-
+        .navtag {
+            margin: 1.5rem 0 1.5rem 1rem;
+            .navtag-title {
+                &:before {
+                    content: "> ";
+                }
+                &.clicked:before {
+                    transform: rotate(-45deg);
+                }
+                &.clicked + .subtag {
+                    display: block !important;
+                }
+            }
+            .subtag {
+                display: none;
+                margin: 0.5rem 0 0.5rem 1rem;
+                .subtag-title {
+                    &:before {
+                        content: "> ";
+                    }
+                    &.clicked:before {
+                        transform: rotate(-45deg);
+                    }
+                    &.clicked + .subtag-post-wrapper {
+                        display: block !important;
+                    }
+                }
+                .subtag-post-wrapper {
+                    display: none;
+                    margin: 0.5rem 0 0.5rem 1rem;
+                    .subtag-post {
+                        margin: 0.5rem 0;
+                    }
+                }
+            }
+        }
     }
     .footer {
 
