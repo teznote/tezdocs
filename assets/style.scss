@@ -107,7 +107,7 @@ img, svg {
                 &.clicked:before {
                     transform: rotate(-45deg);
                 }
-                &.clicked + .subtag {
+                &.clicked ~ .subtag {
                     display: block !important;
                 }
             }
@@ -122,7 +122,7 @@ img, svg {
                     &.clicked:before {
                         transform: rotate(-45deg);
                     }
-                    &.clicked + .subtag-post-wrapper {
+                    &.clicked ~ .subtag-post-wrapper {
                         display: block !important;
                     }
                 }
