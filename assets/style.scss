@@ -140,13 +140,13 @@ img, svg {
                     .subtag-post {
                         padding: 0.25rem 0;
                         &.current {
-                            background-color: #{$c-color};
+                            background-color: darken($bg-color, 20%);
                         }
-                        &.current:after {
-                            content: "\f061";
-                            font: var(--fa-font-solid);
-                            text-align: right;
-                        }
+                        // &.current:after {
+                        //     content: "\f061";
+                        //     font: var(--fa-font-solid);
+                        //     text-align: right;
+                        // }
                     }
                 }
             }
