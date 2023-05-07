@@ -71,7 +71,7 @@ layout: default
                     break;
                 }
             }
-            c.parentElement.scrollTo(0, c.offsetTop-c.offsetHeight*3);
+            document.querySelector('.fixed-sidebar').scrollTo(0, c.offsetTop-c.offsetHeight*3);
         }
     });
 </script>
