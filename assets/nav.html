@@ -14,7 +14,7 @@
         <ul class="subtag-post-wrapper">
             {%- for post in site.tags[subtag.id] reversed -%}
             {%- if post.tags contains navtag.id -%}
-            <li class="subtag-post" navtag="{{ navtag.id }}" sugtag="{{ subtag.id }}">
+            <li class="subtag-post" navtag="{{ navtag.id }}" subtag="{{ subtag.id }}">
                 <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
             </li>
             {% endif %}

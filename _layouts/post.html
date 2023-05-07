@@ -64,8 +64,8 @@ layout: default
                     var navtag = x.getAttribute('navtag');
                     var subtag = x.getAttribute('subtag');
                     console.log(navtag, subtag);
-                    document.querySelector(`.subtag[subtag="${subtag}"]`).classList.add('clicked');
-                    document.querySelector(`.navtag[navtag="${navtag}"]`).classList.add('clicked');
+                    document.querySelector(`.subtag[subtag="${subtag}"]`).querySelector('.subtag-title').classList.add('clicked');
+                    document.querySelector(`.navtag[navtag="${navtag}"]`).querySelector('.navtag-title').classList.add('clicked');
                     break;
                 }
             }
