@@ -98,7 +98,7 @@ layout: default
         var expanded = false;
 
         btn.addEventListener('click', function(e) {
-            if (expanded) {
+            if (!expanded) {
                 for (var x of navtags) {
                     x.classList.add('clicked');
                 }
