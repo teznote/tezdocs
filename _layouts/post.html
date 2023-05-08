@@ -65,7 +65,6 @@ layout: default
     }).then(function() {
         var cur = document.location.href.match(/(https?:\/\/[a-zA-Z0-9.:]+)([a-zA-Z0-9\/%_.-]+)/);
         var posts = document.querySelectorAll('.subtag-post');
-        var c;
 
         if (cur) {
             for (var x of posts) {
@@ -77,11 +76,11 @@ layout: default
                     console.log(navtag, subtag);
                     document.querySelector(`.subtag[subtag="${subtag}"]`).querySelector('.subtag-title').classList.add('clicked');
                     document.querySelector(`.navtag[navtag="${navtag}"]`).querySelector('.navtag-title').classList.add('clicked');
-                    c = x;
+                    document.querySelector('.fixed-sidebar').scrollTo(0, x.offsetTop - window.innerHeight/2);
                     break;
                 }
             }
-            document.querySelector('.fixed-sidebar').scrollTo(0, c.offsetTop - window.innerHeight/2);
+            
         }
     }).then(function() {
         var btn = document.querySelector('.btn');
