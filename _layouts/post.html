@@ -95,9 +95,10 @@ layout: default
         var btn = document.querySelector('.nav-btn');
         var navtags = document.querySelectorAll('.navtag-title');
         var subtags = document.querySelectorAll('.subtag-title');
+        var expanded = false;
 
         btn.addEventListener('click', function(e) {
-            if (e.target.textContent == 'EXPAND ALL CATEGORIES') {
+            if (expanded) {
                 for (var x of navtags) {
                     x.classList.add('clicked');
                 }
@@ -116,6 +117,7 @@ layout: default
                 e.target.classList.remove('clicked');
                 e.target.textContent = 'EXPAND ALL CATEGORIES';
             }
+            expanded = !expanded;
         });
     });
 </script>
