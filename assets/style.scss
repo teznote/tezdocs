@@ -85,6 +85,8 @@ img, svg {
     overflow-y: scroll;
     @media (max-width: 1199px) {
         left: -300px;
+        background-color: #{$bg-color};
+        z-index: 10;
         &.clicked-btn {
             left: 0;
         }
@@ -196,6 +198,7 @@ img, svg {
         .btn {
             display: none;
             font-size: 2rem;
+            cursor: pointer;
             @media (max-width: 1199px) {
                 flex: 1 0 0;
                 display: block;
