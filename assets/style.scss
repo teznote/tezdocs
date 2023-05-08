@@ -200,9 +200,11 @@ img, svg {
             font-size: 2rem;
             cursor: pointer;
             @media (max-width: 1199px) {
-                flex: 1 0 0;
+                position: fixed;
                 display: block;
-                text-align: right;
+                top: 0.5rem;
+                right: 1rem;
+                z-index: 20;
             }
         }
     }
