@@ -107,6 +107,7 @@ layout: default
                     x.classList.add('clicked');
                 }
                 e.target.classList.add('clicked');
+                e.target.textContent = 'EXPAND ALL CATEGORIES';
             } else {
                 for (var x of navtags) {
                     x.classList.remove('clicked');
@@ -115,6 +116,7 @@ layout: default
                     x.classList.remove('clicked');
                 }
                 e.target.classList.remove('clicked');
+                e.target.textContent = 'COLLAPSE ALL CATEGORIES';
             }
         });
     });
