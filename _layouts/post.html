@@ -7,6 +7,9 @@ layout: default
         <h2 class="site-title">
             <a href="{{ '/' | relative_url }}">{{ site.title }}<i class="fa-regular fa-comment-dots"></i></a>
         </h2>
+        <div class="nav-btn">
+            EXPAND ALL CATEGORIES
+        </div>
     </div>
     <div class="nav">
         Nav Loading...
@@ -88,6 +91,30 @@ layout: default
 
         btn.addEventListener('click', function() {
             sidebar.classList.toggle('clicked-btn');
+        });
+    }).then(function() {
+        var btn = document.querySelector('.nav-btn');
+        var navtags = document.querySelectorAll('.navtag-title');
+        var subtags = document.querySelectorAll('.subtag-title');
+
+        btn.addEventListener('click', function(e) {
+            if (e.target.textContent == 'EXPAND ALL CATEGORIES') {
+                for (var x of navtags) {
+                    x.classList.add('clicked');
+                }
+                for (var x of subtags) {
+                    x.classList.add('clicked');
+                }
+                e.target.classList.add('clicked');
+            } else {
+                for (var x of navtags) {
+                    x.classList.remove('clicked');
+                }
+                for (var x of subtags) {
+                    x.classList.remove('clicked');
+                }
+                e.target.classList.remove('clicked');
+            }
         });
     });
 </script>

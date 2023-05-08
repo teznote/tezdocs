@@ -95,7 +95,6 @@ img, svg {
         position: sticky;
         top: 0;
         background-color: #{$bg-color};
-        height: 60px;
         .site-title {
             text-align: center;
             padding: 1rem 0 1rem 0;
@@ -104,6 +103,17 @@ img, svg {
                 position: relative;
                 top: -0.5rem;
                 left: 0.5rem;
+            }
+        }
+        .nav-btn {
+            text-align: center;
+            &:before {
+                content: "\f07c\00a0";
+                font: var(--fa-font-solid);
+            }
+            &.clicked:before {
+                content: "\f07b\00a0";
+                font: var(--fa-font-solid);
             }
         }
     }
