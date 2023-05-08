@@ -90,13 +90,14 @@ img, svg {
         position: sticky;
         top: 0;
         background-color: #{$bg-color};
+        height: 60px;
         .site-title {
             text-align: center;
-            padding: 2rem 0 1rem 0;
+            padding: 1rem 0 1rem 0;
             a i {
                 font-size: 1.5rem;
                 position: relative;
-                top: -1rem;
+                top: -0.5rem;
                 left: 0.5rem;
             }
         }
@@ -175,6 +176,24 @@ img, svg {
     width: 900px;
     bottom: 0;
     overflow-y: scroll;
+    .main-top {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        .main-top-msg {
+            flex: 0 0 0;           
+            @media (max-width: 1199px) {
+                display: none;
+            }
+        }
+        .btn {
+            display: none;
+            @media (max-width: 1199px) {
+                display: block;
+                text-align: right;
+            }
+        }
+    }
     // article 별도 표시
     @media (max-width: 1199px) {
         left: 0;

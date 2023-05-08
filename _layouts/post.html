@@ -4,20 +4,28 @@ layout: default
 
 <div class="fixed-sidebar">
     <div class="header">
-        <h1 class="site-title">
+        <h2 class="site-title">
             <a href="{{ '/' | relative_url }}">{{ site.title }}<i class="fa-regular fa-comment-dots"></i></a>
-        </h1>
+        </h2>
     </div>
     <div class="nav">
         Nav Loading...
     </div>
     <div class="footer">
         <div class="footer-msg">
-            {{- site.desc -}}
+            {{- site.footer-msg -}}
         </div>
     </div>
 </div>
 <div class="fixed-main">
+    <div class="main-top">
+        <div class="main-top-msg">
+            {{- site.main-top-msg -}}
+        </div>
+        <div class="btn">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+    </div>
     <div class="article">
         <h1 class="page-title">
             {{ page.title }}

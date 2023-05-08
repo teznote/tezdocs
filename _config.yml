@@ -1,5 +1,6 @@
 title: "TEZDOCS 테마"
-desc: "깃허브 페이지에서 허접하게나마 기술블로그를 만들기 위한 테마입니다."
+main-top-msg: "깃허브 페이지에서 허접하게나마 기술블로그를 만들기 위한 테마입니다."
+footer-msg: "Powered by Github Pages"
 url: "https://github.com/teznote/tezdocs"
 permalink: /post/:title
 markdown: kramdown
