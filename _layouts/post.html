@@ -98,6 +98,7 @@ layout: default
         var subtags = document.querySelectorAll('.subtag-title');
 
         btn.addEventListener('click', function(e) {
+            console.log('click!!');
             if (e.target.textContent == 'EXPAND ALL CATEGORIES') {
                 for (var x of navtags) {
                     x.classList.add('clicked');

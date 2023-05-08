@@ -95,6 +95,7 @@ img, svg {
         position: sticky;
         top: 0;
         background-color: #{$bg-color};
+        padding-bottom: 1rem;
         .site-title {
             text-align: center;
             padding: 1rem 0 1rem 0;
@@ -107,6 +108,9 @@ img, svg {
         }
         .nav-btn {
             text-align: center;
+            border: 1px dotted;
+            border-radius: 4px;
+            padding: 2px;
             &:before {
                 content: "\f07c\00a0";
                 font: var(--fa-font-solid);
