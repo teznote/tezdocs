@@ -83,5 +83,12 @@ layout: default
             }
             document.querySelector('.fixed-sidebar').scrollTo(0, c.offsetTop - window.innerHeight/2);
         }
+    }).then(function() {
+        var btn = document.querySelector('.btn');
+        var sidebar = document.qeurySelector('.fixed-sidebar');
+
+        btn.addEventListener('click', function() {
+            sidebar.classList.toggle('clicked-btn');
+        });
     });
 </script>

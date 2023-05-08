@@ -85,6 +85,9 @@ img, svg {
     overflow-y: scroll;
     @media (max-width: 1199px) {
         left: -300px;
+        &.clicked-btn {
+            left: 0;
+        }
     }
     .header {
         position: sticky;
@@ -161,6 +164,8 @@ img, svg {
     .footer {
         .footer-msg {
             text-align: center;
+            font-size: 0.9rem;
+            color: #{$c-color};
         }
     }
 }
@@ -181,14 +186,18 @@ img, svg {
         display: flex;
         align-items: center;
         .main-top-msg {
-            flex: 0 0 0;           
+            flex: 1 0 0;
+            font-size: 0.9rem;
+            color: #{$c-color};        
             @media (max-width: 1199px) {
                 display: none;
             }
         }
         .btn {
             display: none;
+            font-size: 2rem;
             @media (max-width: 1199px) {
+                flex: 1 0 0;
                 display: block;
                 text-align: right;
             }
