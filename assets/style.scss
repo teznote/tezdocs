@@ -293,12 +293,15 @@ img, svg {
             border: 1px dashed #{$blue-a-color};
             padding: 0.5rem;
             font-size: 0.9rem;
+            position: relative;
             &:before {
-                content: "# " attr(class);
+                content: "[ " attr(class) " ]";
                 display: block;
                 padding-bottom: 0.5rem;
                 text-transform: uppercase;
                 font-weight: 800;
+                top: -0.6rem;
+                position: absolute;
             }
         }
         ul {
