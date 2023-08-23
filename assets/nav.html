@@ -12,7 +12,25 @@
             {{- subtag.title -}}
         </div>
         <ul class="subtag-post-wrapper">
-            {%- for post in site.tags[subtag.id] reversed -%}
+            {%- assign items = site.tags[subtag.id] -%}
+            {% if cat.order == "asc" %}
+                {% assign items = items | reverse %}
+            {% endif %}
+            {% if cat.order == "title" %}
+                {% assign items = items | sort: 'title' %}
+            {% endif %}
+            {% if cat.order == "title_desc" %}
+                {% assign items = items | sort: 'title' %}
+                {% assign items = items | reverse %}
+            {% endif %}
+            {% if cat.order == "updated" %}
+                {% assign items = items | sort: 'updated' %}
+            {% endif %}
+            {% if cat.order == "updated_desc" %}
+                {% assign items = items | sort: 'updated' %}
+                {% assign items = items | reverse %}
+            {% endif %}
+            {%- for post in items -%}
             {%- if post.tags contains navtag.id -%}
             <li class="subtag-post" navtag="{{ navtag.id }}" subtag="{{ subtag.id }}">
                 <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
