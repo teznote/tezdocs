@@ -2,7 +2,7 @@
 ---
 
 $white: #ffffff;
-$bg-color: #222222;
+$bg-color: #000000;
 $color: #eeeeee;
 $a-color: #eeeeee;
 $a-color: #6ea8fe;
@@ -10,7 +10,7 @@ $b-color: #e685b5;
 $c-color: #dee2e6;
 $blue-a-color: #6ea8fe;
 $blue-bg-color: #000000;
-$red-a-color: #e685b5;
+$red-a-color: #ff9a00;
 $red-bg-color: #000000;
 $green-a-color: #dee2e6;
 $green-bg-color: #000000;
@@ -279,10 +279,10 @@ img, svg {
             }
         }
         div, p, pre, ul {
-            margin: 1rem 0;
+            margin: 1.5rem 0;
         }
         h2 {
-            margin: 2rem 0 1rem 0;
+            margin: 3rem 0 1.5rem 0;
             &:before {
                 content: "#\00a0";
             }
@@ -297,7 +297,8 @@ img, svg {
             &:before {
                 content: "[ " attr(class) " ]";
                 display: block;
-                padding-bottom: 0.5rem;
+                background-color: #{$bg-color};
+                // padding-bottom: 0.5rem;
                 text-transform: uppercase;
                 font-weight: 800;
                 top: -0.6rem;
