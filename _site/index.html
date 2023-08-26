@@ -27,27 +27,7 @@
                 </div>
             </div>
             <div class="nav">
-                <p>Now Loading...1</p>
-                <p>Now Loading...</p>
-                <p>Now Loading...2</p>
-                <p>Now Loading...</p>
-                <p>Now Loading...3</p>
-                <p>Now Loading...</p>
-                <p>Now Loading...4</p>
-                <p>Now Loading...</p>
-                <p>Now Loading...5</p>
-                <p>Now Loading...</p>
-                <p>Now Loading...6</p>
-                <p>Now Loading...</p>
-                <p>Now Loading...7</p>
-                <p>Now Loading...</p>
-                <p>Now Loading...8</p>
-                <p>Now Loading...</p>
-                <p>Now Loading...9</p>
-                <p>Now Loading...</p>
-                <p>Now Loading...10</p>
-                <p>Now Loading...</p>
-                <p>Now Loading...11</p>
+                Now Loading...
             </div>
             <div class="footer">
                 <div>Themed by Tez &&<br/>Powered by Github Pages</div>
@@ -68,7 +48,7 @@
 
 <p>기술블로그를 만들 때 자주 사용하는 <a href="https://readthedocs.org/">Read the Docs</a> 에서 많이 사용하는 테마가 있다. <a href="https://sphinx-themes.org/">Sphinx 테마</a> 가 그것인데, 링크를 보면 대충 어떤 형태인지 알 수 있다.</p>
 
-<p>아무튼 깃허브 페이지용 테마도 위와 비슷한 모습을 보이도록 구현한 것들이 많은데, 이왕 허접하게나마 만들어 보기로 했다.</p>
+<p>아무튼 깃허브 페이지용 <code>테마도</code> 위와 비슷한 모습을 보이도록 구현한 것들이 많은데, 이<code>왕 허접하게나</code>마 만들어 보기로 했다.</p>
 
 <h2 id="아래부터는-테마가-제대로-만들어졌는지-확인해보기-위한-loren-ipsum-입니다">아래부터는 테마가 제대로 만들어졌는지 확인해보기 위한 Loren Ipsum 입니다.</h2>
 
@@ -84,7 +64,7 @@
 
 <p class="warn">대통령으로 선거될 수 있는 자는 <strong>국회의원의 피선거권</strong>이 있고 선거일 현재 <code>40세</code>에 달하여야 한다. <a href="#">국회에 제출된 법률</a>안 기타의 의안은 회기중에 의결되지 못한 이유로 폐기되지 아니한다. 다만, 국회의원의 임기가 만료된 때에는 그러하지 아니하다.</p>
 
-<p><em>선거에 관한 경비는 법률이 정하는 경우를 제외하고는 정당 또는 후보자에게 부담시킬 수 없다. 군인은 현역을 면한 후가 아니면 국무위원으로 임명될 수 없다.</em></p>
+<p><em>선거에 관한 경비는 <code>법률이</code> 정하는 경우를 제외하고는 정당 또는 후보자에게 부담시킬 수 없다. 군인은 현역을 면한 후가 아니면 국무위원으로 임명될 수 없다.</em></p>
 
 <p>국가는 여자의 복지와 권익의 향상을 위하여 노력하여야 한다. 모든 국민은 법률이 정하는 바에 의하여 선거권을 가진다. 국정의 중요한 사항에 관한 대통령의 자문에 응하기 위하여 국가원로로 구성되는 국가원로자문회의를 둘 수 있다.</p>
 
@@ -104,6 +84,14 @@
 
 <p>근로조건의 기준은 인간의 존엄성을 보장하도록 법률로 정한다. 대통령·국무총리·국무위원·행정각부의 장·헌법재판소 재판관·법관·중앙선거관리위원회 위원·감사원장·감사위원 기타 법률이 정한 공무원이 그 직무집행에 있어서 헌법이나 법률을 위배한 때에는 국회는 탄핵의 소추를 의결할 수 있다.</p>
 
+<p>아래는 테스트다.</p>
+
+<ul>
+  <li>안녕<code>하세요</code></li>
+  <li>반갑습니다</li>
+  <li>Nuclear Launch Detected</li>
+</ul>
+
                 </div>
                 <div class="page-reply">
         
@@ -112,6 +100,75 @@
         </div>
     </div>
 </div>
+<script>
+    var target = '/assets/nav.html';
+    fetch(target).then(function(response) {
+        return response.text();
+    }).then(function(body) {
+        document.querySelector('.nav').innerHTML = body;
+        return;
+    }).then(function() {
+        var sub_titles = document.querySelectorAll('.sub-title');
+
+        for (var x of sub_titles) {
+            x.addEventListener('click', function(e) {
+                e.target.classList.toggle('opened');
+                var id = e.target.getAttribute('sub');
+                document.querySelectorAll(`.nav-posts-wrapper[sub="${id}"]`)[0].classList.toggle('opened');
+            });
+        }
+    }).then(function() {
+        var expand_btn = document.querySelectorAll('.expand-btn div')[0];
+        var nav_posts_wrapper = document.querySelectorAll('.nav-posts-wrapper');
+
+        expand_btn.addEventListener('click', function(e) {
+            if (e.target.classList.contains('opened')) {
+                e.target.classList.remove('opened');
+                e.target.textContent = 'EXPAND ALL CATEGORIES';
+                for (var x of nav_posts_wrapper) {
+                    x.classList.remove('opened');
+                }
+            } else {
+                e.target.classList.add('opened');
+                e.target.textContent = 'COLLAPSE ALL CATEGORIES';
+                for (var x of nav_posts_wrapper) {
+                    x.classList.add('opened');
+                }
+            }
+        });
+    }).then(function() {
+        var cur = document.location.href.match(/(https?:\/\/[a-zA-Z0-9.:]+)([a-zA-Z0-9\/%_.-]+)/);
+        var posts = document.querySelectorAll('.nav-post');
+
+        if(cur) {
+            console.log(cur[2]);
+            for (var x of posts) {
+                var href = x.firstElementChild.getAttribute('href');
+                if (href == cur[2]) {
+                    x.classList.add('current');
+                    var sub = x.getAttribute('sub');
+                    document.querySelectorAll(`.nav-posts-wrapper[sub="${sub}"]`).classList.add('opened');
+                }
+            }
+        }
+        //     if (cur) {
+        //     for (var x of posts) {
+        //         var href = x.firstElementChild.getAttribute('href');
+        //         if (href === cur[2]) {
+        //             x.classList.add('current');
+        //             var navtag = x.getAttribute('navtag');
+        //             var subtag = x.getAttribute('subtag');
+        //             console.log(navtag, subtag);
+        //             document.querySelector(`.subtag[subtag="${subtag}"]`).querySelector('.subtag-title').classList.add('clicked');
+        //             document.querySelector(`.navtag[navtag="${navtag}"]`).querySelector('.navtag-title').classList.add('clicked');
+        //             document.querySelector('.fixed-sidebar').scrollTo(0, x.offsetTop - window.innerHeight/2);
+        //             break;
+        //         }
+        //     }
+            
+        // }
+    });
+</script>
 
 <!-- <div class="fixed-sidebar">
     <div class="header">
@@ -147,7 +204,7 @@
 
 <p>기술블로그를 만들 때 자주 사용하는 <a href="https://readthedocs.org/">Read the Docs</a> 에서 많이 사용하는 테마가 있다. <a href="https://sphinx-themes.org/">Sphinx 테마</a> 가 그것인데, 링크를 보면 대충 어떤 형태인지 알 수 있다.</p>
 
-<p>아무튼 깃허브 페이지용 테마도 위와 비슷한 모습을 보이도록 구현한 것들이 많은데, 이왕 허접하게나마 만들어 보기로 했다.</p>
+<p>아무튼 깃허브 페이지용 <code>테마도</code> 위와 비슷한 모습을 보이도록 구현한 것들이 많은데, 이<code>왕 허접하게나</code>마 만들어 보기로 했다.</p>
 
 <h2 id="아래부터는-테마가-제대로-만들어졌는지-확인해보기-위한-loren-ipsum-입니다">아래부터는 테마가 제대로 만들어졌는지 확인해보기 위한 Loren Ipsum 입니다.</h2>
 
@@ -163,7 +220,7 @@
 
 <p class="warn">대통령으로 선거될 수 있는 자는 <strong>국회의원의 피선거권</strong>이 있고 선거일 현재 <code>40세</code>에 달하여야 한다. <a href="#">국회에 제출된 법률</a>안 기타의 의안은 회기중에 의결되지 못한 이유로 폐기되지 아니한다. 다만, 국회의원의 임기가 만료된 때에는 그러하지 아니하다.</p>
 
-<p><em>선거에 관한 경비는 법률이 정하는 경우를 제외하고는 정당 또는 후보자에게 부담시킬 수 없다. 군인은 현역을 면한 후가 아니면 국무위원으로 임명될 수 없다.</em></p>
+<p><em>선거에 관한 경비는 <code>법률이</code> 정하는 경우를 제외하고는 정당 또는 후보자에게 부담시킬 수 없다. 군인은 현역을 면한 후가 아니면 국무위원으로 임명될 수 없다.</em></p>
 
 <p>국가는 여자의 복지와 권익의 향상을 위하여 노력하여야 한다. 모든 국민은 법률이 정하는 바에 의하여 선거권을 가진다. 국정의 중요한 사항에 관한 대통령의 자문에 응하기 위하여 국가원로로 구성되는 국가원로자문회의를 둘 수 있다.</p>
 
@@ -182,6 +239,14 @@
 <p class="info">모든 국민은 직업선택의 자유를 가진다. 대통령이 임시회의 집회를 요구할 때에는 기간과 집회요구의 이유를 명시하여야 한다. 재산권의 행사는 공공복리에 적합하도록 하여야 한다.</p>
 
 <p>근로조건의 기준은 인간의 존엄성을 보장하도록 법률로 정한다. 대통령·국무총리·국무위원·행정각부의 장·헌법재판소 재판관·법관·중앙선거관리위원회 위원·감사원장·감사위원 기타 법률이 정한 공무원이 그 직무집행에 있어서 헌법이나 법률을 위배한 때에는 국회는 탄핵의 소추를 의결할 수 있다.</p>
+
+<p>아래는 테스트다.</p>
+
+<ul>
+  <li>안녕<code>하세요</code></li>
+  <li>반갑습니다</li>
+  <li>Nuclear Launch Detected</li>
+</ul>
 
         </div>
         <div class="page-reply">

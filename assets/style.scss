@@ -4,7 +4,7 @@
 :root {
     --main-color: {{ site.main-color | default: "#eeeeee" }};
     --main-bg-color: {{ site.main-bg-color | default: "#000000" }};
-    --mainview-bg-color: {{ site.mainview-bg-color | default: "#161616" }};
+    --mainview-bg-color: {{ site.mainview-bg-color | default: "#0d1117" }};
     --a-color: {{ site.a-color | default: "#8bb9fe" }};
     --b-color: {{ site.b-color | default: "#e685b5" }};
     --c-color: {{ site.c-color | default: "#79dfc1" }};
@@ -50,7 +50,7 @@ h2 {
     font-size: 1.5rem;
 }
 h3 {
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 
@@ -95,7 +95,6 @@ h3 {
     width: auto; height: 100%;
     overflow-y: scroll;
     .header {
-        // height: 9rem;
         position: sticky; top: 0;
         background-color: var(--main-bg-color);
         display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -116,11 +115,102 @@ h3 {
                 &:hover {
                     border-color: inherit; background-color: var(--mainview-bg-color);
                 }
+                &:before {
+                    content: "\f07c\00a0"; font: var(--fa-font-regular);
+                }
+                &.opened:before {
+                    content: "\f07b\00a0"; font: var(--fa-font-solid);
+                }
             }
         }
     }
     .nav {
-        margin: 1.5rem 0; padding-left: 0.5rem;
+        margin-bottom: 1.5rem; padding-left: 0.5rem;
+        font-size: 0.9rem;
+        .cat-title {
+            margin-bottom: 0.5rem;
+            &:before {
+                content: "\f0d7"; font: var(--fa-font-solid); display: inline-block; width: 0.9rem; text-align: left;
+            }
+        }
+        .sub-title {
+            cursor: pointer;
+            margin-left: 0.9rem; margin-bottom: 0.5rem;
+            border: 1px dashed; border-color: transparent;
+            &:hover {
+                border-color: inherit; background-color: var(--mainview-bg-color);
+            }
+            &:before {
+                content: "\f0da"; font: var(--fa-font-solid); display: inline-block; width: 0.9rem; text-align: left;
+            }
+            &.opened:before {
+                content: "\f0d7";
+            }
+        }
+        .nav-posts-wrapper {
+            display: none;
+            margin-left: 1.8rem; margin-bottom: 0.5rem;
+            &.opened {
+                display: block !important;
+            }
+            li a {
+                display: block;
+            }
+        }
+        // .navtag {
+            //             margin: 1.5rem 0 1.5rem 0;
+            //             .navtag-title {
+            //                 cursor: pointer;
+            //                 &:before {
+            //                     content: "\f0da\00a0";
+            //                     font: var(--fa-font-solid);
+            //                     display: inline-block;
+            //                     width: 1rem;
+            //                     text-align: left;
+            //                 }
+            //                 &.clicked:before {
+            //                     content: "\f0d7\00a0";
+            //                 }
+            //                 &.clicked ~ .subtag {
+            //                     display: block !important;
+            //                 }
+            //             }
+            //             .subtag {
+            //                 display: none;
+            //                 margin: 0.5rem 0 0.5rem 1rem;
+            //                 .subtag-title {
+            //                     cursor: pointer;
+            //                     &:before {
+            //                         content: "\f0da\00a0";
+            //                         font: var(--fa-font-solid);
+            //                         display: inline-block;
+            //                         width: 1rem;
+            //                         text-align: left;
+            //                     }
+            //                     &.clicked:before {
+            //                         content: "\f0d7\00a0";
+            //                     }
+            //                     &.clicked ~ .subtag-post-wrapper {
+            //                         display: block !important;
+            //                     }
+            //                 }
+            //                 .subtag-post-wrapper {
+            //                     display: none;
+            //                     margin: 0.5rem 0 0.5rem 1rem;
+            //                     .subtag-post {
+            //                         padding: 0.25rem 0;
+            //                         &.current {
+            //                             background-color: darken($bg-color, 10%);
+            //                         }
+            //                         // &.current:after {
+            //                         //     content: "\f061";
+            //                         //     font: var(--fa-font-solid);
+            //                         //     text-align: right;
+            //                         // }
+            //                     }
+            //                 }
+            //             }
+            //         }
     }
     .footer {
         height: 3rem;
@@ -141,7 +231,7 @@ h3 {
         margin: 0 0.5rem;
         .page-title {
             margin: 3rem 0 1rem 0;
-            text-align: center;
+            text-align: center; word-break: break-all;
             &:before {
                 content: "\f10d"; font: var(--fa-font-solid); font-size: 1.5rem;
                 position: relative; top: -0.8rem;
@@ -160,104 +250,62 @@ h3 {
             img, svg {
                 display: block;
                 margin: 0 auto;
-                max-width: 100%; vertical-align: bottom;
+                max-width: 100%;
+                & + em {
+                    display: block; margin: 0 0 1rem 0;
+                    font-size: 0.9rem; text-align: center;
+                }
+            }
+            h2 {
+                margin: 3rem 0 1.5rem 0;
+                &:before {
+                    content: "#\00a0";
+                }
+            }
+            h3, div, p, pre, ul {
+                margin: 1.5rem 0;
+            }
+            p[class], pre, ul {
+                color: var(--c-color); background-color: var(--main-bg-color); font-size: 0.9rem;
+                border: 1px dashed;
+                padding: 1rem 0.5rem;
+                position: relative;
+                &:before {
+                    content: "[ " attr(class) " ]";
+                    display: block; position: absolute; top: -0.6rem;
+                    background-color: var(--main-bg-color); font-weight: 800; text-transform: uppercase;
+                }
+            }
+            div, p {
+                code, kbd, samp {
+                    color: var(--main-bg-color); background-color: var(--main-color); font-weight: 800;
+                }
+            }
+            p[class], ul {
+                code, kbd, samp {
+                    color: var(--main-bg-color); background-color: var(--c-color); font-weight: 800;
+                }
+            }
+            pre {
+                code, kbd, samp {
+                    margin: 0 !important; padding: 0 !important;
+                    border: none; background-color: transparent !important; font-size: 0.9rem !important;
+                }
+            }
+            ul {
+                li {
+                    margin-left: 0.9rem;
+                    &:before {
+                        content: "-"; text-align: left;
+                        display: inline-block; width: 0.9rem; margin-left: -0.9rem;
+                    }
+                }
             }
         }
     }
 }
 
 
-// $white: #ffffff;
-// $bg-color: #000000;
-// $color: #eeeeee;
-// $a-color: #eeeeee;
-// $a-color: #6ea8fe;
-// $b-color: #e685b5;
-// $c-color: #dee2e6;
-// $blue-a-color: #6ea8fe;
-// $blue-bg-color: #000000;
-// $red-a-color: #ff9a00;
-// $red-bg-color: #000000;
-// $green-a-color: #dee2e6;
-// $green-bg-color: #000000;
-
-
-// // globals
-// div, ul {
-//     -ms-overflow-style: none;
-//     scrollbar-width: none;
-//     &::-webkit-scrollbar {
-//         display: none;
-//     }
-// }
-// html, body {
-//     width: 100vw;
-//     height: 100vh;
-//     height: -webkit-fill-available;
-//     height: fill-available;
-//     margin: 0;
-//     padding: 0;
-//     font-family: "Hack", "NanumSquareRound", monospace !important;
-//     font-size: 16px;
-//     line-height: 1.3;
-//     color: #{$color};
-//     background-color: #{$blue-bg-color};
-// }
-// pre, code, kbd, samp {
-//     font-family: "Hack", "NanumSquareRound", monospace !important;
-// }
-// a, a:link, a:visited, a:hover, a:active {
-//     text-decoration: none;
-//     border-bottom: 1px dotted;
-//     color: #{$a-color};
-//     font-weight: 800;
-//     word-break: break-all;
-// }
-// b, strong {
-//     color: #{$b-color};
-//     font-weight: 800;
-//     border-bottom: 1px dotted;
-// }
-// h1, h2, h3, h4, h5, h6, div, p, pre, ul, li, button {
-//     display: block;
-//     margin: 0;
-//     padding: 0;
-//     box-sizing: border-box;
-//     transition: transform 0.4s;
-// }
-// h1 {
-//     font-size: 2rem;
-// }
-// h2 {
-//     font-size: 1.5rem;
-// }
-// h3 {
-//     font-size: 1.2rem;
-// }
-// img, svg {
-//     vertical-align: bottom;
-//     max-width: 100%;
-// }
-
-// // sidebar
-// .fixed-sidebar {
-//     background-color: transparent;
-//     padding: 0 0.5rem 0.5rem 0.5rem;
-//     // border: 1px solid #{$c-color};
-//     position: fixed;
-//     top: 0;
-//     left: calc((100vw - 1200px) / 2);
-//     bottom: 0;
-//     width: 300px;
-//     overflow-y: scroll;
-//     @media (max-width: 1199px) {
-//         left: -300px;
-//         background-color: #{$bg-color};
-//         z-index: 10;
-//         &.clicked-btn {
-//             left: 0;
-//         }
-//     }
 //     .header {
 //         position: sticky;
 //         top: 0;
@@ -398,114 +446,3 @@ h3 {
 //     }
 // }
 
-// // article
-// .article {
-//     .page-title {
-//         margin: 2rem 0 1rem 0;
-//         text-align: center;
-//         &:before {
-//             content: "\f10d";
-//             font: var(--fa-font-solid);
-//             font-size: 1.5rem;
-//             position: relative;
-//             top: -0.8rem;
-//         }
-//         &:after {
-//             content: "\f10e";
-//             font: var(--fa-font-solid);
-//             font-size: 1.5rem;
-//             position: relative;
-//             top: -0.8rem;
-//         }
-//     }
-//     .page-desc {
-//         margin: 1rem 0 2rem 0;
-//         text-align: right;
-//         font-size: 0.9rem;
-//         color: #{$c-color};
-//     }
-//     .page-main {
-//         code {
-//             color: #{$c-color};
-//             border: 1px dotted #{$c-color};
-//             border-radius: 4px;
-//             background-color: #ffffff;
-//         }
-//         img, svg {
-//             display: block;
-//             margin: 0 auto;
-//             max-width: 100%;
-//             height: auto;
-//             & + em {
-//                 margin: 0 0 1rem 0;
-//                 color: #{$c-color};
-//                 font-size: 0.9rem;
-//                 text-align: center;
-//                 display: block;
-//             }
-//         }
-//         div, p, pre, ul {
-//             margin: 1.5rem 0;
-//         }
-//         h2 {
-//             margin: 3rem 0 1.5rem 0;
-//             &:before {
-//                 content: "#\00a0";
-//             }
-//         }
-//         p[class], pre, ul {
-//             color: #{$blue-a-color};
-//             background-color: #{$blue-bg-color};
-//             border: 1px dashed #{$blue-a-color};
-//             padding: 0.5rem;
-//             font-size: 0.9rem;
-//             position: relative;
-//             &:before {
-//                 content: "[ " attr(class) " ]";
-//                 display: block;
-//                 background-color: #{$bg-color};
-//                 // padding-bottom: 0.5rem;
-//                 text-transform: uppercase;
-//                 font-weight: 800;
-//                 top: -0.6rem;
-//                 position: absolute;
-//             }
-//         }
-//         ul {
-//             li {
-//                 margin-left: 0.9rem;
-//                 &:before {
-//                     content: "-";
-//                     font: var(--fa-font-solid);
-//                     display: inline-block;
-//                     width: 0.9rem;
-//                     margin-left: -0.9rem;
-//                     text-align: left;
-//                 }
-//             }
-//         }
-//         pre {
-//             code, kbd, samp {
-//                 border: none;
-//                 margin: 0 !important;
-//                 padding: 0 !important;
-//                 background-color: transparent !important;
-//                 font-size: 0.9rem !important;
-//                 color: #{$color} !important;
-//             }
-//         }
-//         .warn, .warning {
-//             color: #{$red-a-color} !important;
-//             background-color: #{$red-bg-color} !important;
-//             border: 1px dashed #{$red-a-color} !important;
-//         }
-//         .info, .infomation, .note {
-//             color: #{$green-a-color} !important;
-//             background-color: #{$green-bg-color} !important;
-//             border: 1px dashed #{$green-a-color} !important;
-//         }
-//     }
-//     .page-reply {
-//         margin: 1rem 0;
-//     }
-// }

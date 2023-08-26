@@ -1,7 +1,8 @@
+@charset "UTF-8";
 :root {
   --main-color: #ddeeff;
   --main-bg-color: #000000;
-  --mainview-bg-color: #161616;
+  --mainview-bg-color: #0d1117;
   --a-color: #8bb9fe;
   --b-color: #e685b5;
   --c-color: #79dfc1;
@@ -71,7 +72,7 @@ h2 {
 }
 
 h3 {
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .layout {
@@ -155,9 +156,60 @@ h3 {
   border-color: inherit;
   background-color: var(--mainview-bg-color);
 }
+.sidebar .header .expand-btn div:before {
+  content: "\f07c ";
+  font: var(--fa-font-regular);
+}
+.sidebar .header .expand-btn div.opened:before {
+  content: "\f07b ";
+  font: var(--fa-font-solid);
+}
 .sidebar .nav {
-  margin: 1.5rem 0;
+  margin-bottom: 1.5rem;
   padding-left: 0.5rem;
+  font-size: 0.9rem;
+}
+.sidebar .nav .cat-title {
+  margin-bottom: 0.5rem;
+}
+.sidebar .nav .cat-title:before {
+  content: "\f0d7";
+  font: var(--fa-font-solid);
+  display: inline-block;
+  width: 0.9rem;
+  text-align: left;
+}
+.sidebar .nav .sub-title {
+  cursor: pointer;
+  margin-left: 0.9rem;
+  margin-bottom: 0.5rem;
+  border: 1px dashed;
+  border-color: transparent;
+}
+.sidebar .nav .sub-title:hover {
+  border-color: inherit;
+  background-color: var(--mainview-bg-color);
+}
+.sidebar .nav .sub-title:before {
+  content: "\f0da";
+  font: var(--fa-font-solid);
+  display: inline-block;
+  width: 0.9rem;
+  text-align: left;
+}
+.sidebar .nav .sub-title.opened:before {
+  content: "\f0d7";
+}
+.sidebar .nav .nav-posts-wrapper {
+  display: none;
+  margin-left: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+.sidebar .nav .nav-posts-wrapper.opened {
+  display: block !important;
+}
+.sidebar .nav .nav-posts-wrapper li a {
+  display: block;
 }
 .sidebar .footer {
   height: 3rem;
@@ -183,6 +235,7 @@ h3 {
 .mainview .article .page-title {
   margin: 3rem 0 1rem 0;
   text-align: center;
+  word-break: break-all;
 }
 .mainview .article .page-title:before {
   content: "\f10d";
@@ -206,7 +259,65 @@ h3 {
   display: block;
   margin: 0 auto;
   max-width: 100%;
-  vertical-align: bottom;
+}
+.mainview .article .page-main img + em, .mainview .article .page-main svg + em {
+  display: block;
+  margin: 0 0 1rem 0;
+  font-size: 0.9rem;
+  text-align: center;
+}
+.mainview .article .page-main h2 {
+  margin: 3rem 0 1.5rem 0;
+}
+.mainview .article .page-main h2:before {
+  content: "# ";
+}
+.mainview .article .page-main h3, .mainview .article .page-main div, .mainview .article .page-main p, .mainview .article .page-main pre, .mainview .article .page-main ul {
+  margin: 1.5rem 0;
+}
+.mainview .article .page-main p[class], .mainview .article .page-main pre, .mainview .article .page-main ul {
+  color: var(--c-color);
+  background-color: var(--main-bg-color);
+  font-size: 0.9rem;
+  border: 1px dashed;
+  padding: 1rem 0.5rem;
+  position: relative;
+}
+.mainview .article .page-main p[class]:before, .mainview .article .page-main pre:before, .mainview .article .page-main ul:before {
+  content: "[ " attr(class) " ]";
+  display: block;
+  position: absolute;
+  top: -0.6rem;
+  background-color: var(--main-bg-color);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.mainview .article .page-main div code, .mainview .article .page-main div kbd, .mainview .article .page-main div samp, .mainview .article .page-main p code, .mainview .article .page-main p kbd, .mainview .article .page-main p samp {
+  color: var(--main-bg-color);
+  background-color: var(--main-color);
+  font-weight: 800;
+}
+.mainview .article .page-main p[class] code, .mainview .article .page-main p[class] kbd, .mainview .article .page-main p[class] samp, .mainview .article .page-main ul code, .mainview .article .page-main ul kbd, .mainview .article .page-main ul samp {
+  color: var(--main-bg-color);
+  background-color: var(--c-color);
+  font-weight: 800;
+}
+.mainview .article .page-main pre code, .mainview .article .page-main pre kbd, .mainview .article .page-main pre samp {
+  margin: 0 !important;
+  padding: 0 !important;
+  border: none;
+  background-color: transparent !important;
+  font-size: 0.9rem !important;
+}
+.mainview .article .page-main ul li {
+  margin-left: 0.9rem;
+}
+.mainview .article .page-main ul li:before {
+  content: "-";
+  text-align: left;
+  display: inline-block;
+  width: 0.9rem;
+  margin-left: -0.9rem;
 }
 
 /*# sourceMappingURL=style.css.map */

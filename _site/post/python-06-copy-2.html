@@ -27,27 +27,7 @@
                 </div>
             </div>
             <div class="nav">
-                <p>Now Loading...1</p>
-                <p>Now Loading...</p>
-                <p>Now Loading...2</p>
-                <p>Now Loading...</p>
-                <p>Now Loading...3</p>
-                <p>Now Loading...</p>
-                <p>Now Loading...4</p>
-                <p>Now Loading...</p>
-                <p>Now Loading...5</p>
-                <p>Now Loading...</p>
-                <p>Now Loading...6</p>
-                <p>Now Loading...</p>
-                <p>Now Loading...7</p>
-                <p>Now Loading...</p>
-                <p>Now Loading...8</p>
-                <p>Now Loading...</p>
-                <p>Now Loading...9</p>
-                <p>Now Loading...</p>
-                <p>Now Loading...10</p>
-                <p>Now Loading...</p>
-                <p>Now Loading...11</p>
+                Now Loading...
             </div>
             <div class="footer">
                 <div>Themed by Tez &&<br/>Powered by Github Pages</div>
@@ -74,6 +54,75 @@
         </div>
     </div>
 </div>
+<script>
+    var target = '/assets/nav.html';
+    fetch(target).then(function(response) {
+        return response.text();
+    }).then(function(body) {
+        document.querySelector('.nav').innerHTML = body;
+        return;
+    }).then(function() {
+        var sub_titles = document.querySelectorAll('.sub-title');
+
+        for (var x of sub_titles) {
+            x.addEventListener('click', function(e) {
+                e.target.classList.toggle('opened');
+                var id = e.target.getAttribute('sub');
+                document.querySelectorAll(`.nav-posts-wrapper[sub="${id}"]`)[0].classList.toggle('opened');
+            });
+        }
+    }).then(function() {
+        var expand_btn = document.querySelectorAll('.expand-btn div')[0];
+        var nav_posts_wrapper = document.querySelectorAll('.nav-posts-wrapper');
+
+        expand_btn.addEventListener('click', function(e) {
+            if (e.target.classList.contains('opened')) {
+                e.target.classList.remove('opened');
+                e.target.textContent = 'EXPAND ALL CATEGORIES';
+                for (var x of nav_posts_wrapper) {
+                    x.classList.remove('opened');
+                }
+            } else {
+                e.target.classList.add('opened');
+                e.target.textContent = 'COLLAPSE ALL CATEGORIES';
+                for (var x of nav_posts_wrapper) {
+                    x.classList.add('opened');
+                }
+            }
+        });
+    }).then(function() {
+        var cur = document.location.href.match(/(https?:\/\/[a-zA-Z0-9.:]+)([a-zA-Z0-9\/%_.-]+)/);
+        var posts = document.querySelectorAll('.nav-post');
+
+        if(cur) {
+            console.log(cur[2]);
+            for (var x of posts) {
+                var href = x.firstElementChild.getAttribute('href');
+                if (href == cur[2]) {
+                    x.classList.add('current');
+                    var sub = x.getAttribute('sub');
+                    document.querySelectorAll(`.nav-posts-wrapper[sub="${sub}"]`).classList.add('opened');
+                }
+            }
+        }
+        //     if (cur) {
+        //     for (var x of posts) {
+        //         var href = x.firstElementChild.getAttribute('href');
+        //         if (href === cur[2]) {
+        //             x.classList.add('current');
+        //             var navtag = x.getAttribute('navtag');
+        //             var subtag = x.getAttribute('subtag');
+        //             console.log(navtag, subtag);
+        //             document.querySelector(`.subtag[subtag="${subtag}"]`).querySelector('.subtag-title').classList.add('clicked');
+        //             document.querySelector(`.navtag[navtag="${navtag}"]`).querySelector('.navtag-title').classList.add('clicked');
+        //             document.querySelector('.fixed-sidebar').scrollTo(0, x.offsetTop - window.innerHeight/2);
+        //             break;
+        //         }
+        //     }
+            
+        // }
+    });
+</script>
 
 <!-- <div class="fixed-sidebar">
     <div class="header">

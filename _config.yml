@@ -9,7 +9,7 @@ kramdown:
         disable: true
 future: true
 main-color: "#ddeeff"
-tags:
+cats:
 - id: study
   title: My Programming Study
   subs:
