@@ -75,6 +75,27 @@ h3 {
   font-size: 1rem;
 }
 
+.menubtn {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: var(--main-color);
+  background-color: transparent;
+  font-size: 2rem;
+}
+.menubtn i.clicked {
+  transform: rotate(-45deg);
+}
+@media (max-width: 700px) {
+  .menubtn {
+    display: block;
+  }
+}
+
 .layout {
   position: fixed;
   top: 0;
@@ -85,7 +106,7 @@ h3 {
   margin: 0 auto;
   display: flex;
 }
-@media (max-width: 800px) {
+@media (max-width: 700px) {
   .layout {
     left: calc(-1 * var(--sidebar-size));
   }
@@ -230,7 +251,7 @@ h3 {
   margin: 0 0.5rem;
 }
 .mainview .article .page-title {
-  margin: 3rem 0 1rem 0;
+  margin: 4rem 0 1rem 0;
   text-align: center;
   word-break: break-all;
 }

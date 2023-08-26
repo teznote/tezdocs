@@ -53,6 +53,9 @@
             </div>
         </div>
     </div>
+    <button class="menubtn">
+        <i class="fa-solid fa-plus"></i>
+    </button>
 </div>
 <script>
     var target = '/assets/nav.html';
@@ -110,6 +113,13 @@
                 }
             }
         }
+    }).then(function() {
+        var menubtn = document.querySelectorAll('.menubtn')[0];
+
+        menubtn.addEventListener('click', function(e) {
+            e.target.classList.toggle('clicked');
+            document.querySelectorAll('.layout')[0].classList.toggle('menubtn-clicked');
+        });
     });
 </script>
 

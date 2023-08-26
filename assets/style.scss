@@ -55,9 +55,21 @@ h3 {
 
 
 // layouts
+.menubtn {
+    display: none; position: fixed; top: 1rem; right: 1rem;
+    outline: none; border: none; cursor: pointer;
+    color: var(--main-color); background-color: transparent;
+    font-size: 2rem;
+    i.clicked {
+        transform: rotate(-45deg);
+    }
+    @media (max-width: 700px) {
+        display: block;
+    }
+}
 .layout {
     position: fixed; top: 0; right: 0; bottom: 0; left: 0;
-    @media (max-width: 800px) {
+    @media (max-width: 700px) {
         left: calc(-1 * var(--sidebar-size));
         &.menubtn-clicked {
             left: 0;
@@ -170,7 +182,7 @@ h3 {
     .article {
         margin: 0 0.5rem;
         .page-title {
-            margin: 3rem 0 1rem 0;
+            margin: 4rem 0 1rem 0;
             text-align: center; word-break: break-all;
             &:before {
                 content: "\f10d"; font: var(--fa-font-solid); font-size: 1.5rem;
