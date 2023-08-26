@@ -1,0 +1,77 @@
+:root {
+  --main-color: #ddeeff;
+  --main-bg-color: #000000;
+  --layout-size: 1200px;
+  --sidebar-size: 300px;
+}
+
+div, ul {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+div::-webkit-scrollbar, ul::-webkit-scrollbar {
+  display: none;
+}
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+  height: -webkit-fill-available;
+  height: fill-available;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-family: "Hack", "NanumSquareRound", monospace !important;
+  line-height: 1.3;
+  color: var(--main-color);
+  background-color: var(--main-bg-color);
+}
+
+h1, h2, h3, h4, h5, h6, div, p, pre, ul, li, button {
+  display: block;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#layout {
+  border: 1px solid #ffffff;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: var(--layout-size);
+  margin: 0 auto;
+  display: flex;
+}
+#layout #layout-sidebar {
+  border: 1px solid #ffffff;
+  flex: 0 0 300px;
+  padding: 20px;
+}
+#layout #layout-sidebar:before, #layout #layout-sidebar:after {
+  content: " ";
+  display: table-cell;
+}
+#layout #layout-mainview {
+  border: 1px solid #ffffff;
+  flex: 1 0 0;
+}
+#layout #layout-mainview:before, #layout #layout-mainview:after {
+  content: " ";
+  display: table-cell;
+}
+
+#sidebar {
+  background-color: darkblue;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+#mainview {
+  background-color: darkslategrey;
+}
+
+/*# sourceMappingURL=style.css.map */

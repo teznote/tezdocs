@@ -1,8 +1,21 @@
----
-layout: default
----
-
-<div id="layout">
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+        <title>TEZDOCS 테마!!</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hack-font@3/build/web/hack.css"/>
+        <link rel="stylesheet" href="https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.min.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/github-dark.min.css" integrity="sha512-rO+olRTkcf304DQBxSWxln8JXCzTHlKnIdnMUwYvQa9/Jd4cQaNkItIUj6Z4nvW1dqK0SKXLbn9h4KwZTNtAyw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+        <link rel="stylesheet" href="/assets/highlightjs-custom.css"/>
+        <link rel="stylesheet" href="/assets/style.css"/>
+    </head>
+    <body>
+        
+        <div id="layout">
     <div id="layout-sidebar">
         <div id="sidebar">
             <p style="height: 3rem;">HIHIHI ~~~</p>
@@ -32,7 +45,7 @@ layout: default
 <!-- <div class="fixed-sidebar">
     <div class="header">
         <h2 class="site-title">
-            <a href="{{ '/' | relative_url }}">{{ site.title }}<i class="fa-regular fa-comment-dots"></i></a>
+            <a href="/">TEZDOCS 테마!!<i class="fa-regular fa-comment-dots"></i></a>
         </h2>
         <div class="nav-btn">EXPAND ALL CATEGORIES
         </div>
@@ -41,29 +54,26 @@ layout: default
         Nav Loading...
     </div>
     <div class="footer">
-        <div class="footer-msg">
-            {{- site.footer-msg -}}
-        </div>
+        <div class="footer-msg"></div>
     </div>
 </div>
 <div class="fixed-main">
     <div class="main-top">
-        <div class="main-top-msg">
-            {{- site.main-top-msg -}}
-        </div>
+        <div class="main-top-msg"></div>
         <div class="btn">
             <i class="fa-solid fa-bars"></i>
         </div>
     </div>
     <div class="article">
         <h1 class="page-title">
-            {{ page.title }}
+            파이썬 스터디 합시다. 19
         </h1>
         <div class="page-desc">
-            Last updated:&nbsp;{{ page.updated }}
+            Last updated:&nbsp;2023-05-06
         </div>
         <div class="page-main">
-            {{ content }}
+            <h2 id="안녕하세요">안녕하세요</h2>
+
         </div>
         <div class="page-reply">
 
@@ -71,7 +81,7 @@ layout: default
     </div>
 </div>
 <script>
-    var target = '{{ "/assets/nav.html" | relative_url  }}';
+    var target = '/assets/nav.html';
     fetch(target).then(function(response) {
         return response.text();
     }).then(function(body) {
@@ -148,3 +158,13 @@ layout: default
         });
     });
 </script> -->
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js" integrity="sha512-gU7kztaQEl7SHJyraPfZLQCNnrKdaQi5ndOyt4L4UPL/FHDd/uB9Je6KDARIqwnNNE27hnqoWLBq+Kpe4iHfeQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/languages/excel.min.js" integrity="sha512-V7I7SdhDhJxPhPrvIHpy+FBERbKPihUHkDOiuxC+rG+knFAIcT2DGj5VLUZVJCwa4NNjHkBVH8GMCt32HyiMPA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/languages/vbnet.min.js" integrity="sha512-LNPAc119nGOqL6purcvlWX0dBb+KGz+ylhJJ3h6Pv+6ots12zKj2fYsTYfHgE6sMTowvpMc8uwqoo0mntHn/rQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="/assets/pseudo.js"></script>
+        <script>
+            hljs.highlightAll();
+        </script>
+    </body>
+</html>

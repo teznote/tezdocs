@@ -1,6 +1,6 @@
-title: "TEZDOCS 테마"
-main-top-msg: "깃허브 페이지에서 허접하게나마 기술블로그를 만들기 위한 테마입니다."
-footer-msg: "Powered by Github Pages"
+title: "TEZDOCS 테마!!"
+top-mgs: "허접한 깃허브 페이지용 기술블로그 테마"
+bottom-msg: "Themed by Tez &&<br/>Powered by Github Pages"
 url: "https://github.com/teznote/tezdocs"
 permalink: /post/:title
 markdown: kramdown
@@ -8,20 +8,25 @@ kramdown:
     syntax_highlighter_opts:
         disable: true
 future: true
-navtags:
+main-color: "#ddeeff"
+tags:
 - id: study
   title: My Programming Study
   subs:
   - id: python
     title: Python
+    order: title
   - id: javascript
     title: Javascript
   - id: cpp
     title: C++
+    order: updated
 - id: todo
   title: My To-do Lists
   subs:
   - id: home
     title: at Home
+    order: updated-desc
   - id: work
     title: at Work
+    order: title-desc
