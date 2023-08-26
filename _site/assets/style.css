@@ -1,6 +1,10 @@
 :root {
   --main-color: #ddeeff;
   --main-bg-color: #000000;
+  --mainview-bg-color: #161616;
+  --a-color: #8bb9fe;
+  --b-color: #e685b5;
+  --c-color: #79dfc1;
   --layout-size: 1200px;
   --sidebar-size: 300px;
 }
@@ -27,6 +31,10 @@ html, body {
   background-color: var(--main-bg-color);
 }
 
+pre, code, kbd, samp {
+  font-family: "Hack", "NanumSquareRound", monospace !important;
+}
+
 h1, h2, h3, h4, h5, h6, div, p, pre, ul, li, button {
   display: block;
   box-sizing: border-box;
@@ -34,7 +42,39 @@ h1, h2, h3, h4, h5, h6, div, p, pre, ul, li, button {
   padding: 0;
 }
 
-#layout {
+a, a:link, a:visited, a:hover, a:active {
+  color: var(--a-color);
+  font-weight: 800;
+  word-break: break-all;
+  text-decoration: none;
+  border: 1px dashed;
+  border-color: transparent;
+}
+a:hover, a:link:hover, a:visited:hover, a:hover:hover, a:active:hover {
+  border-color: inherit;
+  background-color: var(--mainview-bg-color);
+}
+
+b, strong {
+  color: var(--b-color);
+  font-weight: 800;
+  border: 1px dashed;
+  border-color: transparent;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.2rem;
+}
+
+.layout {
   border: 1px solid #ffffff;
   position: fixed;
   top: 0;
@@ -45,33 +85,128 @@ h1, h2, h3, h4, h5, h6, div, p, pre, ul, li, button {
   margin: 0 auto;
   display: flex;
 }
-#layout #layout-sidebar {
-  border: 1px solid #ffffff;
-  flex: 0 0 300px;
-  padding: 20px;
+@media (max-width: 800px) {
+  .layout {
+    left: calc(-1 * var(--sidebar-size));
+  }
+  .layout.menubtn-clicked {
+    left: 0;
+    right: calc(-1 * var(--sidebar-size));
+  }
 }
-#layout #layout-sidebar:before, #layout #layout-sidebar:after {
+.layout .layout-sidebar {
+  border: 1px solid #ffffff;
+  min-width: 0;
+  flex: 0 0 300px;
+}
+.layout .layout-sidebar:before, .layout .layout-sidebar:after {
   content: " ";
   display: table-cell;
 }
-#layout #layout-mainview {
+.layout .layout-mainview {
   border: 1px solid #ffffff;
+  min-width: 0;
   flex: 1 0 0;
 }
-#layout #layout-mainview:before, #layout #layout-mainview:after {
+.layout .layout-mainview:before, .layout .layout-mainview:after {
   content: " ";
   display: table-cell;
 }
 
-#sidebar {
-  background-color: darkblue;
-  width: 100%;
+.sidebar {
+  background-color: transparent;
+  width: auto;
   height: 100%;
   overflow-y: scroll;
 }
+.sidebar .header {
+  position: sticky;
+  top: 0;
+  background-color: var(--main-bg-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.sidebar .header .site-title {
+  margin: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sidebar .header .site-title a:after {
+  content: " \f4ad";
+  font: var(--fa-font-regular);
+  position: relative;
+  top: -0.5rem;
+}
+.sidebar .header .expand-btn {
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sidebar .header .expand-btn div {
+  cursor: pointer;
+  border: 1px dashed;
+  border-color: transparent;
+}
+.sidebar .header .expand-btn div:hover {
+  border-color: inherit;
+  background-color: var(--mainview-bg-color);
+}
+.sidebar .nav {
+  margin: 1.5rem 0;
+  padding-left: 0.5rem;
+}
+.sidebar .footer {
+  height: 3rem;
+  margin: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-#mainview {
-  background-color: darkslategrey;
+.mainview {
+  background-color: var(--mainview-bg-color);
+  width: auto;
+  height: 100%;
+  overflow-y: scroll;
+}
+.mainview:before, .mainview:after {
+  content: " ";
+  display: table-cell;
+}
+.mainview .article {
+  margin: 0 0.5rem;
+}
+.mainview .article .page-title {
+  margin: 3rem 0 1rem 0;
+  text-align: center;
+}
+.mainview .article .page-title:before {
+  content: "\f10d";
+  font: var(--fa-font-solid);
+  font-size: 1.5rem;
+  position: relative;
+  top: -0.8rem;
+}
+.mainview .article .page-title:after {
+  content: "\f10e";
+  font: var(--fa-font-solid);
+  font-size: 1.5rem;
+  position: relative;
+  top: -0.8rem;
+}
+.mainview .article .page-desc {
+  margin: 1rem 0 3rem 0;
+  text-align: right;
+}
+.mainview .article .page-main img, .mainview .article .page-main svg {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  vertical-align: bottom;
 }
 
 /*# sourceMappingURL=style.css.map */

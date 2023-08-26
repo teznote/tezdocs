@@ -2,29 +2,61 @@
 layout: default
 ---
 
-<div id="layout">
-    <div id="layout-sidebar">
-        <div id="sidebar">
-            <p style="height: 3rem;">HIHIHI ~~~</p>
-            <p style="height: 3rem;">HIHIHI ~~~</p>
-            <p style="height: 3rem;">HIHIHI ~4~~</p>
-            <p style="height: 3rem;">HIHIHI ~~~</p>
-            <p style="height: 3rem;">HIHIHI ~3~~</p>
-            <p style="height: 3rem;">HIHIHI ~~~</p>
-            <p style="height: 3rem;">HIHIHI ~~~</p>
-            <p style="height: 3rem;">HIHIHI ~~~</p>
-            <p style="height: 3rem;">HIHIHI 1~~~</p>
-            <p style="height: 3rem;">HIHIHI ~~~</p>
-            <p style="height: 3rem;">HIHIHI ~~~</p>
-            <p style="height: 3rem;">HIHIHI ~~~</p>
-            <p style="height: 3rem;">HIHIHI ~~2~</p>
-            <p style="height: 3rem;">HIHIHI ~~~</p>
-            <p style="height: 3rem;">HIHIHI ~~~</p>
+<div class="layout">
+    <div class="layout-sidebar">
+        <div class="sidebar">
+            <div class="header">
+                <h2 class="site-title">
+                    <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
+                </h2>
+                <div class="expand-btn">
+                    <div>EXPAND ALL CATEGORIES</div>
+                </div>
+            </div>
+            <div class="nav">
+                <p>Now Loading...1</p>
+                <p>Now Loading...</p>
+                <p>Now Loading...2</p>
+                <p>Now Loading...</p>
+                <p>Now Loading...3</p>
+                <p>Now Loading...</p>
+                <p>Now Loading...4</p>
+                <p>Now Loading...</p>
+                <p>Now Loading...5</p>
+                <p>Now Loading...</p>
+                <p>Now Loading...6</p>
+                <p>Now Loading...</p>
+                <p>Now Loading...7</p>
+                <p>Now Loading...</p>
+                <p>Now Loading...8</p>
+                <p>Now Loading...</p>
+                <p>Now Loading...9</p>
+                <p>Now Loading...</p>
+                <p>Now Loading...10</p>
+                <p>Now Loading...</p>
+                <p>Now Loading...11</p>
+            </div>
+            <div class="footer">
+                <div>{{ site.bottom-msg }}</div>
+            </div>
         </div>
     </div>
-    <div id="layout-mainview">
-        <div id="mainview">
-
+    <div class="layout-mainview">
+        <div class="mainview">
+            <div class="article">
+                <h1 class="page-title">
+                    {{ page.title }}
+                </h1>
+                <div class="page-desc">
+                    Last updated:&nbsp;{{ page.updated }}
+                </div>
+                <div class="page-main">
+                    {{ content }}
+                </div>
+                <div class="page-reply">
+        
+                </div>
+            </div>
         </div>
     </div>
 </div>
