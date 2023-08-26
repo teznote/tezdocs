@@ -127,27 +127,32 @@
                 e.target.textContent = 'EXPAND ALL CATEGORIES';
                 for (var x of nav_posts_wrapper) {
                     x.classList.remove('opened');
+                    var sub = x.getAttribute('sub');
+                    document.querySelectorAll(`.sub-title[sub="${sub}"]`)[0].classList.remove('opened');
                 }
             } else {
                 e.target.classList.add('opened');
                 e.target.textContent = 'COLLAPSE ALL CATEGORIES';
                 for (var x of nav_posts_wrapper) {
                     x.classList.add('opened');
+                    var sub = x.getAttribute('sub');
+                    document.querySelectorAll(`.sub-title[sub="${sub}"]`)[0].classList.add('opened');
                 }
             }
         });
     }).then(function() {
-        var cur = document.location.href.match(/(https?:\/\/[a-zA-Z0-9.:]+)([a-zA-Z0-9\/%_.-]+)/);
+        var cur = document.location.href.split('/');
+        cur = '/post/' + cur[cur.length-1];
         var posts = document.querySelectorAll('.nav-post');
 
-        if(cur) {
-            console.log(cur[2]);
+        if(cur !== '/post/') {
             for (var x of posts) {
                 var href = x.firstElementChild.getAttribute('href');
-                if (href == cur[2]) {
+                if (href == cur) {
                     x.classList.add('current');
                     var sub = x.getAttribute('sub');
-                    document.querySelectorAll(`.nav-posts-wrapper[sub="${sub}"]`).classList.add('opened');
+                    document.querySelectorAll(`.nav-posts-wrapper[sub="${sub}"]`)[0].classList.add('opened');
+                    document.querySelectorAll(`.sub-title[sub="${sub}"]`)[0].classList.add('opened');
                 }
             }
         }
