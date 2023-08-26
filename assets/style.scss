@@ -56,8 +56,6 @@ h3 {
 
 // layouts
 .layout {
-    border: 1px solid #ffffff;
-
     position: fixed; top: 0; right: 0; bottom: 0; left: 0;
     @media (max-width: 800px) {
         left: calc(-1 * var(--sidebar-size));
@@ -70,8 +68,6 @@ h3 {
     margin: 0 auto;
     display: flex;
     .layout-sidebar {
-        border: 1px solid #ffffff;
-
         min-width: 0;
         flex: 0 0 300px;
         &:before, &:after {
@@ -79,8 +75,6 @@ h3 {
         }
     }
     .layout-mainview {
-        border: 1px solid #ffffff;
-
         min-width: 0;
         flex: 1 0 0;
         &:before, &:after {

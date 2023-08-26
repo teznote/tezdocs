@@ -76,7 +76,6 @@ h3 {
 }
 
 .layout {
-  border: 1px solid #ffffff;
   position: fixed;
   top: 0;
   right: 0;
@@ -96,7 +95,6 @@ h3 {
   }
 }
 .layout .layout-sidebar {
-  border: 1px solid #ffffff;
   min-width: 0;
   flex: 0 0 300px;
 }
@@ -105,7 +103,6 @@ h3 {
   display: table-cell;
 }
 .layout .layout-mainview {
-  border: 1px solid #ffffff;
   min-width: 0;
   flex: 1 0 0;
 }
