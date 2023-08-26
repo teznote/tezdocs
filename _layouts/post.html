@@ -81,13 +81,12 @@ layout: default
             }
         });
     }).then(function() {
-        var cur = document.location.href.split('/');
-        cur = '/post/' + cur[cur.length-1];
+        var cur = document.location.href.split('/').slice(-1)[0];
         var posts = document.querySelectorAll('.nav-post');
 
-        if(cur !== '/post/') {
+        if(cur !== '') {
             for (var x of posts) {
-                var href = x.firstElementChild.getAttribute('href');
+                var href = x.firstElementChild.getAttribute('href').split('/').slice(-1)[0];
                 if (href == cur) {
                     x.classList.add('current');
                     var sub = x.getAttribute('sub');
