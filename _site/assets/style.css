@@ -160,10 +160,11 @@ h3 {
   top: -0.5rem;
 }
 .sidebar .header .expand-btn {
+  width: 100%;
   margin-bottom: 1.5rem;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
 }
 .sidebar .header .expand-btn div {
   cursor: pointer;
@@ -174,11 +175,11 @@ h3 {
   border-color: inherit;
   background-color: var(--mainview-bg-color);
 }
-.sidebar .header .expand-btn div:before {
+.sidebar .header .expand-btn .expand:before {
   content: "\f07c ";
   font: var(--fa-font-regular);
 }
-.sidebar .header .expand-btn div.opened:before {
+.sidebar .header .expand-btn .collapse:before {
   content: "\f07b ";
   font: var(--fa-font-solid);
 }
@@ -228,6 +229,15 @@ h3 {
 }
 .sidebar .nav .nav-posts-wrapper li a {
   display: block;
+  margin-left: 0.9rem;
+}
+.sidebar .nav .nav-posts-wrapper li a:before {
+  content: "\f0da";
+  font: var(--fa-font-solid);
+  display: inline-block;
+  width: 0.9rem;
+  text-align: left;
+  margin-left: -0.9rem;
 }
 .sidebar .footer {
   height: 3rem;

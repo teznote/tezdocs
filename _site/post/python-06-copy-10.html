@@ -23,7 +23,8 @@
                     <a href="/">TEZDOCS 테마!!</a>
                 </h2>
                 <div class="expand-btn">
-                    <div>EXPAND ALL CATEGORIES</div>
+                    <div class="expand">EXPAND ALL</div>
+                    <div class="collapse">COLLAPSE ALL</div>
                 </div>
             </div>
             <div class="nav">
@@ -75,28 +76,44 @@
             });
         }
     }).then(function() {
-        var expand_btn = document.querySelectorAll('.expand-btn div')[0];
+        var [expand_btn, collapse_btn] = document.querySelectorAll('.expand-btn div');
         var nav_posts_wrapper = document.querySelectorAll('.nav-posts-wrapper');
 
         expand_btn.addEventListener('click', function(e) {
-            if (e.target.classList.contains('opened')) {
-                e.target.classList.remove('opened');
-                e.target.textContent = 'EXPAND ALL CATEGORIES';
-                for (var x of nav_posts_wrapper) {
-                    x.classList.remove('opened');
-                    var sub = x.getAttribute('sub');
-                    document.querySelectorAll(`.sub-title[sub="${sub}"]`)[0].classList.remove('opened');
-                }
-            } else {
-                e.target.classList.add('opened');
-                e.target.textContent = 'COLLAPSE ALL CATEGORIES';
-                for (var x of nav_posts_wrapper) {
-                    x.classList.add('opened');
-                    var sub = x.getAttribute('sub');
-                    document.querySelectorAll(`.sub-title[sub="${sub}"]`)[0].classList.add('opened');
-                }
+            for (var x of nav_posts_wrapper) {
+                x.classList.add('opened');
+                var sub = x.getAttribute('sub');
+                document.querySelectorAll(`.sub-title[sub="${sub}"]`)[0].classList.add('opened');
             }
         });
+
+        collapse_btn.addEventListener('click', function(e) {
+            for (var x of nav_posts_wrapper) {
+                x.classList.remove('opened');
+                var sub = x.getAttribute('sub');
+                document.querySelectorAll(`.sub-title[sub="${sub}"]`)[0].classList.remove('opened');
+            }
+        });
+
+        // expand_btn.addEventListener('click', function(e) {
+        //     if (e.target.classList.contains('opened')) {
+        //         e.target.classList.remove('opened');
+        //         e.target.textContent = 'EXPAND ALL CATEGORIES';
+        //         for (var x of nav_posts_wrapper) {
+        //             x.classList.remove('opened');
+        //             var sub = x.getAttribute('sub');
+        //             document.querySelectorAll(`.sub-title[sub="${sub}"]`)[0].classList.remove('opened');
+        //         }
+        //     } else {
+        //         e.target.classList.add('opened');
+        //         e.target.textContent = 'COLLAPSE ALL CATEGORIES';
+        //         for (var x of nav_posts_wrapper) {
+        //             x.classList.add('opened');
+        //             var sub = x.getAttribute('sub');
+        //             document.querySelectorAll(`.sub-title[sub="${sub}"]`)[0].classList.add('opened');
+        //         }
+        //     }
+        // });
     }).then(function() {
         var cur = document.location.href.split('/').slice(-1)[0];
         var posts = document.querySelectorAll('.nav-post');

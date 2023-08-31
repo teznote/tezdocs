@@ -113,20 +113,20 @@ h3 {
             }
         }
         .expand-btn {
-            margin-bottom: 1.5rem;
-            display: flex; align-items: center; justify-content: center;
+            width: 100%; margin-bottom: 1.5rem;
+            display: flex; align-items: center; justify-content: space-around;
             div {
                 cursor: pointer;
                 border: 1px dashed; border-color: transparent;
                 &:hover {
                     border-color: inherit; background-color: var(--mainview-bg-color);
                 }
-                &:before {
-                    content: "\f07c\00a0"; font: var(--fa-font-regular);
-                }
-                &.opened:before {
-                    content: "\f07b\00a0"; font: var(--fa-font-solid);
-                }
+            }
+            .expand:before {
+                content: "\f07c\00a0"; font: var(--fa-font-regular);
+            }
+            .collapse:before {
+                content: "\f07b\00a0"; font: var(--fa-font-solid);
             }
         }
     }
@@ -159,8 +159,14 @@ h3 {
             &.opened {
                 display: block !important;
             }
-            li a {
-                display: block;
+            li {
+                a {
+                    display: block;
+                    margin-left: 0.9rem;
+                    &:before {
+                        content: "\f0da"; font: var(--fa-font-solid); display: inline-block; width: 0.9rem; text-align: left; margin-left: -0.9rem;
+                    }
+                }
             }
         }
     }
