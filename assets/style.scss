@@ -167,6 +167,13 @@ h3 {
                         content: "\f0da"; font: var(--fa-font-solid); display: inline-block; width: 0.9rem; text-align: left; margin-left: -0.9rem;
                     }
                 }
+                &.current {
+                    background-color: var(--main-color);
+                    a {
+                        pointer-events: none;
+                        color: var(--main-bg-color); 
+                    }
+                }
             }
         }
     }
