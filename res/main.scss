@@ -17,13 +17,13 @@
   }
 }
 :root {
-  --bg-a: #f8f9fa; --bg-b: #e9ecef; --fg-a: #16191d; --fg-b: #4c6ef5;
+  --bg-a: #f8f9fa; --bg-b: #e9ecef; --fg-a: #16191d; --fg-b: #4c6ef5; --shadow: -6px -6px 10px rgba(255,255,255,0.45), 6px 6px 10px rgba(94,104,121,0.3);
   &.dark {
-    --bg-a: #030507; --bg-b: #16191d; --fg-a: #e9ecef; --fg-b: #748ffc;
+    --bg-a: #030507; --bg-b: #16191d; --fg-a: #e9ecef; --fg-b: #748ffc; --shadow: -6px -6px 10px rgba(94,104,121,0.3), 6px 6px 10px rgba(255,255,255,0.3);
   }
 }
 a {
-  text-decoration: none; color: var(--fg-b); border: 1px dashed transparent; border-radius: 0.25rem;
+  text-decoration: none; word-break: break-all; color: var(--fg-b); border: 1px dashed transparent; border-radius: 0.25rem;
   &:hover {
     border-color: var(--fg-b);
   }
@@ -32,11 +32,11 @@ a {
 // layout
 body {
   position: fixed; top: 0; right: 0; bottom: 0; left: 0;
-  font: 300 16px NanumSquareNeo,san-serif; line-height: 1.2; color: var(--fg-a); background: var(--bg-b);
+  font: 300 16px NanumSquareNeo,san-serif; line-height: 1.5; color: var(--fg-a); background: var(--bg-b);
   .a {
     height: 100%; max-width: 1024px; margin: 0 auto;
     overflow: hidden;
-    .aa {
+    #slide.aa {
       position: relative; left: -300px;
       display: flex;
       height: 100%; width: calc(100% + 300px);
@@ -74,20 +74,28 @@ body {
   font-size: 2rem; text-align: center;
 }
 #page-desc {
-  text-align: right;
+  font-size: 0.9rem; text-align: right;
 }
 #page-main {
   h2 {
     margin: 3rem 0 1.5rem 0;
     font-size: 1.5rem;
+    &:before {
+      content: '# ';
+    }
   }
   p, pre, ul, div, blockquote, h3, h4, h5, h6 {
     margin: 1.5rem 0;
     &[class] {
-      padding: 1.5rem 0.5rem 0.5rem 0.5rem;
+      position: relative;
+      margin: 1.5rem 1rem; padding: 1.5rem 0.5rem 0.5rem 0.5rem;
       font-size: 0.9rem;
+      border-left: 3px solid var(--fg-b); background: var(--bg-b); box-shadow: var(--shadow);
       &:before {
-        content: attr(class); text-transform: uppercase;
+        content: attr(class); text-transform: uppercase; line-height: 1.1; font-family: hack,monospace;
+        position: absolute; top: 0; left: -3px;
+        display: inline-block; padding: 0 0.5rem;
+        color: var(--bg-b); background: var(--fg-b); border-bottom-right-radius: 0.5rem; box-shadow: var(--shadow);
       }
     }
   }
@@ -103,22 +111,74 @@ body {
       overflow-x: scroll;
     }
   }
+  img, svg {
+    display: block; max-width: 100%; margin: 0 auto;
+    +em {
+      display: block;
+      font-size: 0.9rem; text-align: center;
+    }
+  }
+  b, strong {
+    text-decoration: var(--fg-b) wavy underline; text-underline-offset: 2px;
+  }
 }
 
 // sidebar
 #site-sticky {
-  position: sticky; top: initial;
-  margin: 2rem 0;
+  position: sticky; top: 0;
+  padding: 0.5rem 0;
   background: var(--bg-b);
   #site-title {
     margin: 1rem 0;
     text-align: center;
   }
   #site-control {
-    margin: 1rem 0;
+    display: flex; align-items: center; justify-content: center; gap: 0.25rem;
+    margin: 1rem 0; height: 1.5rem; width: 100%;
     text-align: center;
+    >svg {
+      display: block; height: 1rem; width: 1rem;
+    }
+    >label {
+      position: relative;
+      display: block; height: 1.5rem; width: 3rem;
+      box-shadow: var(--shadow); border-radius: 9999px;
+      cursor: pointer;
+      >input {
+        height: 0; width: 0; opacity: 0;
+        &:checked+div {
+          left: 1.5rem;
+        }
+      }
+      >div {
+        position: absolute; top: 0; left: 0;
+        height: 1.5rem; width: 1.5rem;
+        background: var(--fg-b); border-radius: 9999px;
+        transition: left 0.4s;
+      }
+    }
   }
 }
 #site-nav {
   margin-top: 2rem;
+}
+
+//menu-btn
+#menu-btn {
+  @media (min-width: 1024px) {
+    display: none;
+  }
+  position: fixed; top: 1rem; right: 1rem;
+  display: flex; align-items: center; justify-content: center;
+  height: 2rem; width: 2rem;
+  background: var(--bg-b); border-radius: 0.5rem;
+  svg {
+    transition: transform 0.4s;
+    transform: scale(1.5);
+  }
+  &.open {
+    svg {
+      transform: rotate(45deg) scale(1.5);
+    }
+  }
 }
