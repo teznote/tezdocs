@@ -1,0 +1,124 @@
+---
+---
+
+// global
+.preload * {
+  transition: none !important;
+}
+.hidden {
+  display: none !important;
+}
+* {
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+  -ms-overflow-style: none; scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+:root {
+  --bg-a: #f8f9fa; --bg-b: #e9ecef; --fg-a: #16191d; --fg-b: #4c6ef5;
+  &.dark {
+    --bg-a: #030507; --bg-b: #16191d; --fg-a: #e9ecef; --fg-b: #748ffc;
+  }
+}
+a {
+  text-decoration: none; color: var(--fg-b); border: 1px dashed transparent; border-radius: 0.25rem;
+  &:hover {
+    border-color: var(--fg-b);
+  }
+}
+
+// layout
+body {
+  position: fixed; top: 0; right: 0; bottom: 0; left: 0;
+  font: 300 16px NanumSquareNeo,san-serif; line-height: 1.2; color: var(--fg-a); background: var(--bg-b);
+  .a {
+    height: 100%; max-width: 1024px; margin: 0 auto;
+    overflow: hidden;
+    .aa {
+      position: relative; left: -300px;
+      display: flex;
+      height: 100%; width: calc(100% + 300px);
+      transition: left 0.4s;
+      &.open {
+        left: 0;
+      }
+      @media (min-width: 1024px) {
+        left: auto; width: 100%;
+      }
+      .aaa {
+        flex: 0 0 300px; padding: 0.5rem;
+        height: 100%;
+        #sidebar.aaaa {
+          height: 100%;
+          overflow-y: scroll;
+        }
+      }
+      .aab {
+        flex: 1 0 0;
+        height: 100%; min-width: 0; padding: 0.5rem;
+        background: var(--bg-a);
+        #mainview.aaba {
+          height: 100%;
+          overflow-y: scroll; 
+        }
+      }
+    }
+  }
+}
+
+// mainview
+#page-title {
+  margin: 3rem 0;
+  font-size: 2rem; text-align: center;
+}
+#page-desc {
+  text-align: right;
+}
+#page-main {
+  h2 {
+    margin: 3rem 0 1.5rem 0;
+    font-size: 1.5rem;
+  }
+  p, pre, ul, div, blockquote, h3, h4, h5, h6 {
+    margin: 1.5rem 0;
+    &[class] {
+      padding: 1.5rem 0.5rem 0.5rem 0.5rem;
+      font-size: 0.9rem;
+      &:before {
+        content: attr(class); text-transform: uppercase;
+      }
+    }
+  }
+  p, ul, div, blockquote {
+    code {
+      font-family: hack,monospace; border: 1px dashed; border-radius: 0.25rem;
+    }
+  }
+  pre {
+    font-family: hack,monospace;
+    >code {
+      display: block;
+      overflow-x: scroll;
+    }
+  }
+}
+
+// sidebar
+#site-sticky {
+  position: sticky; top: initial;
+  margin: 2rem 0;
+  background: var(--bg-b);
+  #site-title {
+    margin: 1rem 0;
+    text-align: center;
+  }
+  #site-control {
+    margin: 1rem 0;
+    text-align: center;
+  }
+}
+#site-nav {
+  margin-top: 2rem;
+}

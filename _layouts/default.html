@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko" preload>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>{{ site.title }}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hack-font@3.3.0/build/web/hack.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-nanum-square-neo@0.0.6/nanumsquareneo.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
+    <link rel="stylesheet" href="./res/main.css"/>
+  </head>
+  <body>
+    <div class="a">
+      <div class="aa">
+        <div class="aaa">
+          <div id="sidebar" class="aaaa">
+            <div id="site-sticky">
+              <div id="site-title"><a href="/">{{ site.title }}</a></div>
+              <div id="site-control">Controls</div>
+            </div>
+            <div id="site-nav">
+              Now Loading...
+            </div>
+          </div>
+        </div>
+        <div class="aab">
+          <div id="mainview" class="aaba">
+            <h1 id="page-title">{{ page.title }}</h1>
+            <div id="page-desc">Updated: {{ page.updated }}</div>
+            <div id="page-main">{{ content }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
