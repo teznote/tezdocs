@@ -19,7 +19,7 @@
 :root {
   --bg-a: #f8f9fa; --bg-b: #e9ecef; --fg-a: #16191d; --fg-b: #4c6ef5; --shadow: rgba(0,0,0,0.3) 2px 2px 5px 2px, rgba(255,255,255,1) -2px -2px 5px 2px;
   &.dark {
-    --bg-a: #030507; --bg-b: #16191d; --fg-a: #e9ecef; --fg-b: #91a7ff; --shadow: rgba(255,255,255,0.2) 2px 2px 5px 2px, rgba(0,0,0,1) -2px -2px 5px 2px;
+    --bg-a: #030507; --bg-b: #16191d; --fg-a: #e9ecef; --fg-b: #91a7ff; --shadow: rgba(0,0,0,1) 2px 2px 5px 2px, rgba(255,255,255,0.07) -2px -2px 5px 2px;
   }
 }
 a {
@@ -95,7 +95,7 @@ body {
         content: attr(class); text-transform: uppercase; line-height: 1.1; font-family: hack,monospace;
         position: absolute; top: 0; left: -3px;
         display: inline-block; padding: 0 0.5rem;
-        color: var(--bg-b); background: var(--fg-b); border-bottom-right-radius: 0.5rem; box-shadow: var(--shadow);
+        color: var(--bg-b); background: var(--fg-b); box-shadow: var(--shadow);
       }
     }
   }
@@ -130,15 +130,12 @@ body {
   background: var(--bg-b);
   #site-title {
     margin: 1rem 0;
-    text-align: center;
+    font-size: 1.5rem; text-align: center;
   }
   #site-control {
     display: flex; align-items: center; justify-content: center; gap: 0.25rem;
     margin: 1rem 0; height: 1.5rem; width: 100%;
     text-align: center;
-    >svg {
-      display: block; height: 1rem; width: 1rem;
-    }
     >label {
       position: relative;
       display: block; height: 1.5rem; width: 3rem;
@@ -157,6 +154,16 @@ body {
         transition: left 0.4s;
       }
     }
+    &:before {
+      content: '\f5a2'; font-family: bootstrap-icons;
+      display: flex; align-items: center; justify-content: center;
+      height: 1.5rem; width: 1.5rem;
+    }
+    &:after {
+      content: '\f496'; font-family: bootstrap-icons;
+      display: flex; align-items: center; justify-content: center;
+      height: 1.5rem; width: 1.5rem;
+    }
   }
 }
 #site-nav {
@@ -164,7 +171,7 @@ body {
   font-size: 0.9rem;
   .lv1 {
     &:before {
-      content: '▶ ';
+      content: ' ';
     }
     .lv2 {
       .lv3 {
@@ -182,14 +189,9 @@ body {
   position: fixed; top: 1rem; right: 1rem;
   display: flex; align-items: center; justify-content: center;
   height: 2rem; width: 2rem;
-  background: var(--bg-b); border-radius: 0.5rem;
-  svg {
-    transition: transform 0.4s;
-    transform: scale(1.5);
-  }
-  &.open {
-    svg {
-      transform: rotate(45deg) scale(1.5);
-    }
+  font-size: 1.5rem; border-radius: 9999px; box-shadow: var(--shadow);
+  &:before {
+    content: '\f5d4'; font-family: bootstrap-icons;
+    display: inline-block;
   }
 }
