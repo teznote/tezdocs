@@ -18,7 +18,7 @@ Github Page 를 구축하기 위한 Repo 를 하나 생성한다.
 그리고 `_config.yml` 파일 안에 아래와 같은 구문이 필수적으로 삽입되어야 한다. `[ Site Title ]` 안에는 원하는 사이트 타이틀을 삽입한다.
 
 ```yaml
-remote_theme: teznote/tezskin@v3.0.0
+remote_theme: teznote/tezdocs@v3.0.0
 title: "[ Site Title ]"
 permalink: /post/:title
 markdown: kramdown
