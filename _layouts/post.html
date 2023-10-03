@@ -2,4 +2,109 @@
 layout: default
 ---
 
-{{- content -}}
+<div class="a">
+  <div id="slide" class="aa">
+    <div class="aaa">
+      <div id="sidebar" class="aaaa">
+        <div class="aaaaa">
+          <div id="site-sticky">
+            <div id="site-title"><a href="{{ '/' | relative_url }}">{{ site.title }}</a></div>
+            <div id="site-control">
+              <label>
+                <input type="checkbox"/>
+                <div></div>
+              </label>
+            </div>
+          </div>
+          <div id="site-nav">
+            Now Loading...
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="aab">
+      <div id="mainview" class="aaba">
+        <h1 id="page-title">{{ page.title }}</h1>
+        <div id="page-desc">Updated: {{ page.updated }}</div>
+        <div id="page-main">{{ content }}</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="menu-btn"></div>
+<script>
+  fetch('{{ './res/nav.html' | relative_url }}').then(r => {
+    return r.text()
+  }).then(r => {
+    document.querySelector('#site-nav').innerHTML = r
+  }).then(() => {
+    const sidebar = document.querySelector('#sidebar')
+    const lv2s = document.querySelectorAll('.lv2')
+    const lv3_lis = document.querySelectorAll('.lv3 li')
+    const cur = document.location.href.split('/').slice(-1)[0]
+
+    for (let x of lv2s) {
+      x.addEventListener('click', e => {
+        x.classList.toggle('open')
+      })
+    }
+
+    if (cur) {
+      for (let x of lv3_lis) {
+        var href = x.firstElementChild.getAttribute('href').split('/').slice(-1)[0]
+        if (cur === href) {
+          x.classList.add('current')
+          document.querySelector(`.lv2[sub="${x.parentElement.getAttribute('sub')}"]`).classList.add('open')
+          sidebar.scrollTo({
+            top: x.offsetTop - x.clientHeight / 2 - sidebar.clientHeight / 2,
+            behavior: 'smooth',
+          })
+          break
+        }
+      }
+    }
+  })
+</script>
+<script>
+  const root = document.querySelector(':root')
+  const slide = document.querySelector('#slide')
+  const menu_btn = document.querySelector('#menu-btn')
+  const sw_input = document.querySelector('#site-control label input')
+
+  menu_btn.addEventListener('click', e => {
+    slide.classList.toggle('open')
+    menu_btn.classList.toggle('open')
+  })
+
+  const set_theme = t => {
+    if (t === 'dark') {
+      root.classList.add('dark')
+      window.sessionStorage.setItem('theme', 'dark')
+    } else {
+      root.classList.remove('dark')
+      window.sessionStorage.setItem('theme', 'light')
+    }
+  }
+
+  const cur_theme = window.sessionStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light')
+  if (cur_theme === 'dark') {
+    sw_input.checked = true
+    set_theme('dark')
+  } else {
+    set_theme('light')
+  }
+
+  sw_input.addEventListener('click', e => {
+    if (e.target.checked) {
+      set_theme('dark')
+    } else {
+      set_theme('light')
+    }
+  })
+
+  document.addEventListener('DOMContentLoaded', e => {
+    setTimeout(() => {
+      root.classList.remove('preload')
+    }, 200)   
+  })
+</script>
