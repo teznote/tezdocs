@@ -122,7 +122,7 @@ body {
     }
   }
   b, strong {
-    text-decoration: var(--fg-b) wavy underline; text-underline-offset: 2px;
+    text-decoration: var(--fg-b) double underline; text-underline-offset: 0.25rem;
   }
 }
 

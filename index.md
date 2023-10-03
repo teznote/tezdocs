@@ -1,56 +1,87 @@
 ---
 layout: post
-title: "TEZDOCS 테마입니다."
-updated: 2023-05-06
-tags: [home]
+title: "About \"TEZDOCS\" theme 3.0"
+updated: 2023-10-03
+tags: home
 ---
 
-## TEZDOCS 는요...
+## TEZDOCS 3.0
 
-기술블로그를 만들 때 자주 사용하는 [Read the Docs](https://readthedocs.org/) 에서 많이 사용하는 테마가 있다. [Sphinx 테마](https://sphinx-themes.org/) 가 그것인데, 링크를 보면 대충 어떤 형태인지 알 수 있다.
+기술블로그에서 많이 사용하는 [Sphinx 테마](https://sphinx-themes.org/) 와 비슷한 형태의 테마를 사용해보고 싶었다. 구글링 해보면 Github Page 테마로 구현한 것들도 많았지만 허접하게나마 직접 만들어보고 싶었다.
 
-아무튼 깃허브 페이지용 `테마도` 위와 비슷한 모습을 보이도록 구현한 것들이 많은데, 이`왕 허접하게나`마 만들어 보기로 했다.
+버전 1 과 2 를 거쳐 3 까지 오게 되었다.
 
-## 아래부터는 테마가 제대로 만들어졌는지 확인해보기 위한 Loren Ipsum 입니다.
+## 테마 사용 방법
 
-### 1. OXOXOXOX 오엑스 오엑스
+Github Page 를 구축하기 위한 Repo 를 하나 생성한다.
 
-누구든지 **체포 또는 구속**을 당한 때에는 즉시 [변호인의 조력](#)을 받을 권리를 가진다. 다만, 형사`피고인`이 스스로 변호인을 구할 수 없을 때에는 법률이 정하는 바에 의하여 국가가 변호인을 붙인다.
+그리고 `_config.yml` 파일 안에 아래와 같은 구문이 필수적으로 삽입되어야 한다. `[ Site Title ]` 안에는 원하는 사이트 타이틀을 삽입한다.
 
-- 국회의원은 국회에서 직무상 행한 발언과 표결에 관하여 국회외에서 책임을 지지 아니한다. 헌법개정은 국회재적의원 과반수 또는 대통령의 발의로 제안된다.
-- 대통령의 선거에 관한 사항은 **법률**로 정한다. 예비비는 총액으로 국회의 의결을 얻어야 한다.
-- 예비비의 지출은 `차기국회의 승인`을 얻어야 한다. 국가안전보장회의의 조직·직무범위 [기타 필요한 사항](#)은 법률로 정한다.
+```yaml
+remote_theme: teznote/tezskin@v3.0.0
+title: "[ Site Title ]"
+permalink: /post/:title
+markdown: kramdown
+kramdown:
+  syntax_highlighter_opts:
+    disable: true
+future: true
+```
+{:.yaml}
+
+`_config.yml` 파일에 아래 구문을 이어서 작성한다. 이는 생성된 Github Page 왼쪽 사이드바에 표시되는 카테고리 항목이다.
+
+```yaml
+cats:
+  - id: [ lv1 id ]
+    title: [ lv1 title ]
+    subs:
+      - id: [ lv2 id ]
+        title: [ lv2 title ]
+        order: [ asc or title, default desc ]
+```
+{:.yaml}
+
+포스팅 문서의 Front Matter 는 아래와 같다.
+
+```yaml
+---
+layout: post
+title: [ Post Title ]
+updated: [ Last updated YYYY-MM-DD ]
+tags: [ id ]
+---
+```
+{:.front.matter}
+
+위 Front Matter 에서 `tags` 부연설명을 하자면, `_config.yml` 파일의 `subs` 아래에 있는 `id` 중의 하나여야 한다.
+
+보다 자세한 설명을 원한다면 [TEZDOCS Repo](https://github.com/teznote/tezdocs/) 를 직접 살펴보기 바란다.
+
+## 디자인 예시
+
+아래부터는 어떤 식으로 디자인이 되는지를 알 수 있는 예시이다.
+
+이것은 **강조구문**이다. [링크](#)이다.
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque [sodales](#) enim id augue ultricies, vel rhoncus tellus ullamcorper. Sed tincidunt augue ac rhoncus accumsan.
 {:.note}
 
-대통령으로 선거될 수 있는 자는 **국회의원의 피선거권**이 있고 선거일 현재 `40세`에 달하여야 한다. [국회에 제출된 법률](#)안 기타의 의안은 회기중에 의결되지 못한 이유로 폐기되지 아니한다. 다만, 국회의원의 임기가 만료된 때에는 그러하지 아니하다.
-{:.warn}
+- Suspendisse sit amet ex ut massa **aliquet** efficitur.
+- Integer fermentum neque laoreet, venenatis enim in, fermentum nisl.
+- Sed pellentesque lectus pulvinar elementum volutpat.
+{:.아무거나.넣어보자}
 
-*선거에 관한 경비는 `법률이` 정하는 경우를 제외하고는 정당 또는 후보자에게 부담시킬 수 없다. 군인은 현역을 면한 후가 아니면 국무위원으로 임명될 수 없다.*
+이미지 테스트
 
-국가는 여자의 복지와 권익의 향상을 위하여 노력하여야 한다. 모든 국민은 법률이 정하는 바에 의하여 선거권을 가진다. 국정의 중요한 사항에 관한 대통령의 자문에 응하기 위하여 국가원로로 구성되는 국가원로자문회의를 둘 수 있다.
+![그림00](https://via.placeholder.com/700x150)*이미지 캡션 Image Caption 이미지 캡션 Image Caption 이미지 캡션 Image Caption 이미지 캡션 Image Caption 이미지 캡션 Image Caption*
 
-### 2. XOXOXOXO 엑스오 엑스오
-
-![이미지](https://via.placeholder.com/700x50)*법률이 헌법에 위반되는 여부가 재판의 전제가 된 경우에는 법원은 헌법재판소에 제청하여 그 심판에 의하여 재판한다. 이 헌법공포 당시의 국회의원의 임기는 제1항에 의한 국회의 최초의 집회일 전일까지로 한다.*
-
-국민경제자문회의의 조직·직무범위 기타 **필요한 사항은 법률**로 정한다. 선거운동은 각급 선거관리`위원회`의 [관리](#)하에 법률이 정하는 범위안에서 하되, 균등한 기회가 보장되어야 한다.
+코드 하이라이트 테스트
 
 ```python
-def f(name: str) -> None:
-    print(f'Hello, {name}!')
+def fibonacci(n):
+  return n if n < 2 else fibonacci(n-2) + fibonacci(n-1)    # Dynamic Programming...
 ```
 {:.python}
 
-정부는 회계연도마다 예산안을 편성하여 회계연도 개시 90일전까지 국회에 제출하고, 국회는 회계연도 개시 30일전까지 이를 의결하여야 한다. 제2항과 제3항의 처분에 대하여는 법원에 제소할 수 없다.
-
-모든 국민은 직업선택의 자유를 가진다. 대통령이 임시회의 집회를 요구할 때에는 기간과 집회요구의 이유를 명시하여야 한다. 재산권의 행사는 공공복리에 적합하도록 하여야 한다.
-{:.note}
-
-근로조건의 기준은 인간의 존엄성을 보장하도록 법률로 정한다. 대통령·국무총리·국무위원·행정각부의 장·헌법재판소 재판관·법관·중앙선거관리위원회 위원·감사원장·감사위원 기타 법률이 정한 공무원이 그 직무집행에 있어서 헌법이나 법률을 위배한 때에는 국회는 탄핵의 소추를 의결할 수 있다.
-
-아래는 테스트다.
-
-- 안녕`하세요`
-- 반갑습니다
-- Nuclear Launch Detected
-{:.note}
+위 `fibonacci` 함수는 재귀호출을 사용하고 있다.
