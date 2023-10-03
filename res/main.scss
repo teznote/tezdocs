@@ -19,7 +19,7 @@
 :root {
   --bg-a: #f8f9fa; --bg-b: #e9ecef; --fg-a: #16191d; --fg-b: #4c6ef5; --shadow: rgba(0,0,0,0.3) 2px 2px 5px 2px, rgba(255,255,255,1) -2px -2px 5px 2px;
   &.dark {
-    --bg-a: #030507; --bg-b: #16191d; --fg-a: #e9ecef; --fg-b: #91a7ff; --shadow: rgba(0,0,0,1) 2px 2px 5px 2px, rgba(255,255,255,0.07) -2px -2px 5px 2px;
+    --bg-a: #16191d; --bg-b: #212529; --fg-a: #e9ecef; --fg-b: #bac8ff; --shadow: rgba(0,0,0,1) 2px 2px 5px 2px, rgba(255,255,255,0.06) -2px -2px 5px 2px;
   }
 }
 a {
@@ -48,11 +48,14 @@ body {
         left: auto; width: 100%;
       }
       .aaa {
-        flex: 0 0 300px; padding: 0.5rem;
+        flex: 0 0 300px;
         height: 100%;
         #sidebar.aaaa {
           height: 100%;
           overflow-y: scroll;
+          .aaaaa {
+            padding: 0.5rem;
+          }
         }
       }
       .aab {
@@ -170,12 +173,53 @@ body {
   margin-top: 2rem;
   font-size: 0.9rem;
   .lv1 {
+    margin-left: 1rem; margin-top: 1rem;
+    cursor: pointer;
     &:before {
-      content: ' ';
+      content: '\f231'; font: 300 0.5rem bootstrap-icons; vertical-align: middle;
+      display: inline-block; width: 1rem; margin-left: -1rem;
     }
-    .lv2 {
-      .lv3 {
-
+    &.open:before {
+      content: '\f229';
+    }
+  }
+  .lv2 {
+    margin-left: 2rem;
+    cursor: pointer;
+    &:before {
+      content: '\f231'; font: 300 0.5rem bootstrap-icons; vertical-align: middle;
+      display: inline-block; width: 1rem; margin-left: -1rem;
+    }
+    & +.lv3 {
+      display: none;
+    }
+    &.open {
+      &:before {
+        content: '\f229';
+      }
+      & +.lv3 {
+        display: block;
+      }
+    }
+  }
+  .lv3 {
+    li {
+      margin-left: 2rem;
+      a {
+        display: block; margin-left: 1rem;
+        &:before {
+          content: '\f231'; font: 300 0.5rem bootstrap-icons; vertical-align: middle;
+          display: inline-block; width: 1rem; margin-left: -1rem;
+        }
+      }
+      &.current {
+        position: relative;
+        margin-right: -0.5rem; padding-right: 0.5rem;
+        background: var(--bg-a);
+        a {
+          color: var(--fg-a);
+          pointer-events: none; cursor: default;
+        }
       }
     }
   }
@@ -183,6 +227,8 @@ body {
 
 //menu-btn
 #menu-btn {
+  background: var(--bg-b);
+  cursor: pointer;
   @media (min-width: 1024px) {
     display: none;
   }

@@ -2,14 +2,14 @@
 ---
 
 {% for cat in site.cats %}
-<div class="lv1">{{ cat.title }}</div>
+<div class="lv1 open">{{ cat.title }}</div>
 {% for sub in cat.subs %}
 <div class="lv2" sub="{{ sub.id }}">{{ sub.title }}</div>
 {% assign items = site.tags[sub.id] %}
 {% if sub.order == "asc" %}{% assign items = items | reverse %}
 {% elsif sub.order == "title" %}{% assign items = items | sort: "title" %}
 {% endif %}
-<ul class="lv3"></ul>
+<ul class="lv3" sub="{{ sub.id }}">
   {% for item in items %}
   <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
   {% endfor %}
