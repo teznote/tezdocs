@@ -104,11 +104,11 @@ body {
   }
   p, ul, div, blockquote {
     code {
-      font-family: hack,monospace; border: 1px dashed; border-radius: 0.25rem;
+      font-family: hack,NanumSquareNeo,monospace; border: 1px dashed; border-radius: 0.25rem;
     }
   }
   pre {
-    font-family: hack,monospace;
+    font-family: hack,NanumSquareNeo,monospace;
     >code {
       display: block;
       overflow-x: scroll;
