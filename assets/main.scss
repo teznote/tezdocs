@@ -107,10 +107,10 @@ body {
       font-family: hack,NanumSquareNeo,monospace; border: 1px dashed; border-radius: 0.25rem;
     }
     li {
-      margin-left: 1px;
+      margin-left: 1rem;
       &:before {
         content: '-';
-        display: inline-block; width: 1px; margin-left: -1rem;
+        display: inline-block; width: 1rem; margin-left: -1rem;
       }
     }
   }
