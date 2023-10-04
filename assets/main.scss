@@ -106,6 +106,13 @@ body {
     code {
       font-family: hack,NanumSquareNeo,monospace; border: 1px dashed; border-radius: 0.25rem;
     }
+    li {
+      margin-left: 1px;
+      &:before {
+        content: '-';
+        display: inline-block; width: 1px; margin-left: -1rem;
+      }
+    }
   }
   pre {
     font-family: hack,NanumSquareNeo,monospace;
