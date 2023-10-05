@@ -11,6 +11,9 @@
 * {
   -webkit-tap-highlight-color: transparent;
   box-sizing: border-box;
+  word-break: keep-all;
+}
+html, body, div, ul {
   -ms-overflow-style: none; scrollbar-width: none;
   &::-webkit-scrollbar {
     display: none;
@@ -23,7 +26,7 @@
   }
 }
 a {
-  text-decoration: none; word-break: break-all; color: var(--fg-b); border: 1px dashed transparent; border-radius: 0.25rem;
+  text-decoration: none; color: var(--fg-b); border: 1px dashed transparent; border-radius: 0.25rem;
   &:hover {
     border-color: var(--fg-b);
   }
