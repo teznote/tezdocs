@@ -85,3 +85,8 @@ def fibonacci(n):
 {:.python}
 
 위 `fibonacci` 함수는 재귀호출을 사용하고 있다.
+
+```javascript
+const fibonacci = function(n) { return (n < 2) ? n : fibonacci(n-2) + fibonacci(n-1) }
+```
+{:.javascript}
