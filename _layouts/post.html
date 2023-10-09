@@ -33,7 +33,7 @@ layout: default
 </div>
 <div id="menu-btn"></div>
 <script>
-  fetch('{{ '/assets/nav.html' | relative_url }}').then(r => {
+  fetch('{{ "/assets/nav.html" | relative_url }}').then(r => {
     return r.text()
   }).then(r => {
     document.querySelector('#site-nav').innerHTML = r
