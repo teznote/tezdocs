@@ -54,6 +54,16 @@ layout: default
         var href = x.firstElementChild.getAttribute('href').split('/').slice(-1)[0]
         if (cur === href) {
           x.classList.add('current')
+
+          // append h2 links
+          let tmp = ''
+          for (let y of document.querySelectorAll('#page-main h2') {
+            tmp += `<li><a href="#${y.getAttribut('id')}">${y.getAttribute('id')}</a></li>`
+          }
+          let ul = document.createElement('ul')
+          ul.innerHTML = tmp
+          x.appendChild(ul)
+          
           document.querySelector(`.lv2[sub="${x.parentElement.getAttribute('sub')}"]`).classList.add('open')
           sidebar.scrollTo({
             top: x.offsetTop - x.clientHeight / 2 - sidebar.clientHeight / 2,
