@@ -57,8 +57,8 @@ layout: default
 
           // append h2 links
           let tmp = ''
-          for (let y of document.querySelectorAll('#page-main h2') {
-            tmp += `<li><a href="#${y.getAttribut('id')}">${y.getAttribute('id')}</a></li>`
+          for (let y of document.querySelectorAll('#page-main h2')) {
+            tmp += `<li><a href="#${y.getAttribute('id')}">${y.getAttribute('id')}</a></li>`
           }
           let ul = document.createElement('ul')
           ul.innerHTML = tmp
