@@ -41,7 +41,7 @@ layout: default
     const sidebar = document.querySelector('#sidebar')
     const lv2s = document.querySelectorAll('.lv2')
     const lv3_lis = document.querySelectorAll('.lv3 li')
-    const cur = document.location.href.split('/').slice(-1)[0]
+    const cur = document.location.href.split('/').slice(-1)[0].replace(/#.+/, '')
 
     for (let x of lv2s) {
       x.addEventListener('click', e => {

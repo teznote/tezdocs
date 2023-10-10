@@ -225,7 +225,7 @@ body {
     }
   }
   .lv3 {
-    li {
+    >li {
       margin-left: 2rem;
       a {
         display: block; margin-left: 1rem;
@@ -238,9 +238,19 @@ body {
         position: relative;
         margin-right: -0.5rem; padding-right: 0.5rem;
         background: var(--bg-a);
-        a {
+        >a {
           color: var(--fg-a);
           pointer-events: none; cursor: default;
+        }
+        >ul {
+          margin-left: 1rem;
+          >li a {
+            color: var(--fg-a);  border-color: transparent;
+            &:before {
+              content: '+';
+              font: 300 16px NanumSquareNeo,san-serif;
+            }
+          }
         }
       }
     }
