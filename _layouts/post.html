@@ -58,7 +58,7 @@ layout: default
           // append h2 links
           let tmp = ''
           for (let y of document.querySelectorAll('#page-main h2')) {
-            tmp += `<li><a href="#${y.getAttribute('id')}">${y.getAttribute('id')}</a></li>`
+            tmp += `<li><a href="#${y.getAttribute('id')}">${y.innerText}</a></li>`
           }
           let ul = document.createElement('ul')
           ul.innerHTML = tmp
@@ -84,6 +84,11 @@ layout: default
   menu_btn.addEventListener('click', e => {
     slide.classList.toggle('open')
     menu_btn.classList.toggle('open')
+  })
+
+  window.addEventListener('hashchange', e => {
+    slide.classList.remove('open')
+    menu_btn.classList.remove('open')
   })
 
   const set_theme = t => {
