@@ -3,6 +3,110 @@ layout: default
 ---
 
 <div class="a">
+  <div class="aa">
+    <div class="aaa">
+      <div class="aaaa">
+        <div id="site-title">
+          <a href="/">{{ site.title }}</a>
+        </div>
+      </div>
+      <div class="aaab">
+        <div id="sw1">
+          <i class="bi bi-sun"></i>
+          <label>
+            <input type="checkbox"/>
+            <div></div>
+          </label>
+          <i class="bi bi-moon-stars"></i>
+        </div>
+        <div id="sw2">
+          <i class="bi bi-file-text"></i>
+          <label>
+            <input type="checkbox"/>
+            <div></div>
+          </label>
+          <i class="bi bi-folder2"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ab">
+    <div class="aba">
+      <div class="abaa">
+        <div id="slide">
+          <div id="page">
+            <h1 id="page-title">{{ page.title }}</h1>
+            <div id="page-desc">Updated: {{ page.updated }}</div>
+            <div id="page-main">{{ content }}</div>
+          </div>
+          <div id="nav">
+            Now Loading...
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  // Nav
+  fetch('{{ "/assets/nav.html" | relative_url }}').then(r => {
+    return r.text()
+  }).then(r => {
+    document.querySelector('#nav').innerHTML = r
+  }).then(() => {
+
+  })
+</script>
+<script>
+  // Events
+  const root = document.querySelector(':root')
+  const slide = document.querySelector('#slide')
+  const sw1_input = document.querySelector('#sw1 input')
+  const sw2_input = document.querySelector('#sw2 input')
+
+  const set_theme = t => {
+    if (t === 'dark') {
+      root.classList.add('dark')
+      window.sessionStorage.setItem('theme', 'dark')
+    } else {
+      root.classList.remove('dark')
+      window.sessionStorage.setItem('theme', 'light')
+    }
+  }
+
+  const cur_theme = window.sessionStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? 'dark' : 'light')
+  if (cur_theme === 'dark') {
+    sw1_input.checked = true
+    set_theme('dark')
+  } else {
+    set_theme('light')
+  }
+
+  sw1_input.addEventListener('click', e => {
+    if (e.target.checked) {
+      set_theme('dark')
+    } else {
+      set_theme('light')
+    }
+  })
+
+  sw2_input.addEventListener('click', e => {
+    if (e.target.checked) {
+      slide.classList.add('checked')
+    } else {
+      slide.classList.remove('checked')
+    }
+  })
+
+  document.addEventListener('DOMContentLoaded', e => {
+    setTimeout(() => {
+      root.classList.remove('preload')
+    }, 200)   
+  })
+</script>
+
+
+<!-- <div class="a">
   <div id="slide" class="aa">
     <div class="aaa">
       <div id="sidebar" class="aaaa">
@@ -122,4 +226,4 @@ layout: default
       root.classList.remove('preload')
     }, 200)   
   })
-</script>
+</script> -->
