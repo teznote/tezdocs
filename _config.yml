@@ -1,0 +1,8 @@
+title: Tez'Docs
+description: Simple blog theme for Github Pages
+permalink: /post/:title
+baseurl: /tezdocs
+
+kramdown:
+  syntax_highlighter_opts:
+    disable: true
