@@ -122,32 +122,37 @@ body {
 
 // nav
 #nav {
-  height: 100%;
   display: flex; flex-direction: column; gap: 1rem;
-  overflow: hidden;
-  #tags {
+  >.a{
     flex: 0 0 auto;
-    ul {
-      display: flex; flex-wrap: wrap; gap: 1rem;
-      li {
-        padding: 0.5rem;
-        cursor: pointer;
+    #tags {
+      height: 100%;
+      ul {
+        display: flex; flex-wrap: wrap; gap: 1rem;
+        li {
+          padding: 0.5rem;
+          cursor: pointer;
+        }
       }
     }
   }
-  #posts {
-    position: relative; left: 0;
-    flex: 1 0 auto;
-    display: flex; width: calc(100% * {{ site.navtags.size }});
-    overflow: hidden; transition: left 0.4s;
-    {% for tag in site.navtags %}
-    &.selected-{{ tag.id }} {
-      left: -{{ forloop.index0 }}00%;
-    }
-    {% endfor %}
-    >div {
-      flex: 1 0 0;
-      overflow-y: scroll; overflow-x: hidden;
+  >.b {
+    flex: 1 0 0; min-height: 0;
+    overflow: hidden;
+    #posts {
+      position: relative; left: 0;
+      display: flex; height: 100%; width: calc(100% * {{ site.navtags.size }});
+      transition: left 0.4s;
+      {% for tag in site.navtags %}
+      &.selected-{{ tag.id }} {
+        left: -{{ forloop.index0 }}00%;
+      }
+      {% endfor %}
+      >div {
+        flex: 1 0 0;
+        height: 100%;
+        overflow-y: scroll; overflow-x: hidden;
+      }
     }
   }
 }
