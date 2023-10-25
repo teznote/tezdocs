@@ -1,5 +1,6 @@
 title: Tez'Docs
 description: Simple blog theme for Github Pages
+footer: This blog is powered by Github Pages,<br />and themed by Jekyll.
 permalink: /post/:title
 baseurl: /tezdocs
 

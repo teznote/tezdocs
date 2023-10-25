@@ -2,13 +2,36 @@
 layout: default
 ---
 
-{% include Header.html %}
-<div>
-  {{ content }}
-</div>
-
-<style>
-  div {
-    background: #eee;
-  }
-</style>
+<header>
+  <div class="a">
+    <div class="aa">
+      <h2 id="site-title">
+        <a href="{{ '/' | relative_url }}">{{ site.title }}</a>
+      </h2>
+    </div>
+    <div class="ab">
+      {% include switch.html id="sw1" left="D" right="N" %}
+      {% include switch.html id="sw2" left="A" right="P" %}
+    </div>
+  </div>
+</header>
+<main>
+  <div class="a">
+    <div class="aa">
+      <div id="slide">
+        <div id="page">
+          <h1 id="page-title">{{ page.title }}</h1>
+          <div id="page-meta">
+            <div id="page-description">{{ page.description }}</div>
+            <div id="page-updated">Last updated: {{ page.updated }}</div>
+          </div>
+          <div id="page-main">{{ content }}</div>
+          <div id="page-footer">{{ site.footer }}</div>
+        </div>
+        <div id="nav">
+          Nav is Loading...
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

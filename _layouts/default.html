@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" class="preload">
   <head>
     <base href="{{ site.root }}" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{{ site.title }}</title>
+    <title>{{ page.title }} :: {{ site.title }}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" />
+    <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}" />
   </head>
   <body>
     {{ content }}
+    <script src="{{ '/assets/main.js' | relative_url }}"></script>
   </body>
 </html>
