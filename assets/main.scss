@@ -11,8 +11,17 @@ div::-webkit-scrollbar {
 :root {
   --fg-a: #111; --bg-a: #eee;
 }
-a {
+* {
   -webkit-tap-highlight-color: transparent;
+}
+ul {
+  list-style: none;
+  li {
+    display: block; 
+  }
+}
+.preload * {
+  transition: none !important;
 }
 
 // layout
@@ -43,14 +52,19 @@ body {
         height: 100%; width: 100%;
         overflow-y: scroll; overflow-x: hidden;
         #slide {
-          display: relative; left: 0;
+          position: relative; left: 0;
           height: 100%; width: 200%;
           display: flex;
+          transition: left 0.4s;
           &.sw2-checked {
             left: -100%;
           }
           #page {
             flex: 1 0 0; min-width: 0;
+            #page-footer {
+              position: sticky;
+              top: 100vh;
+            }
           }
           #nav {
             flex: 1 0 0; min-width: 0;
@@ -90,14 +104,40 @@ body {
       height: 1rem; width: 1rem;
       background-color: var(--fg-a);
       overflow: hidden;
+      transition: left 0.4s;
       >.ba {
         position: absolute; top: 0; left: 0; height: 1rem; width: 2rem;
         display: flex; align-items: center; justify-content: center;
+        transition: left 0.4s;
         >div {
           flex: 1 0 auto;
           display: flex; align-items: center; justify-content: center;
           color: var(--bg-a);
         }
+      }
+    }
+  }
+}
+
+// nav
+#nav {
+  #tags {
+    ul {
+      display: flex; flex-wrap: wrap; gap: 1rem;
+      li {
+        
+      }
+    }
+  }
+}
+
+// page
+#page {
+  #page-main {
+    pre {
+      >code {
+        display: block;
+        overflow-x: auto;
       }
     }
   }

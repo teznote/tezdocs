@@ -1,4 +1,22 @@
 ---
 ---
 
-Loaded!
+<div id="tags">
+  <div>[Tags]</div>
+  <ul>
+    {% for tag in site.navtags %}
+    <li tag="{{ tag.id }}"><span>{{ tag.title }}</span></li>
+    {% endfor %}
+  </ul>
+</div>
+<div id="posts">
+  {% for tag in site.navtags %}
+  <div tag="{{ tag.id }}">
+    <ul>
+      {% for post in site.tags[tag.id] %}
+      <li tag="{{ tag.id }}"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% endfor %}
+</div>

@@ -7,3 +7,11 @@ baseurl: /tezdocs
 kramdown:
   syntax_highlighter_opts:
     disable: true
+
+navtags:
+- id: todo
+  title: To-Dos
+- id: diary
+  title: My Diary
+- id: coding
+  title: Coding
